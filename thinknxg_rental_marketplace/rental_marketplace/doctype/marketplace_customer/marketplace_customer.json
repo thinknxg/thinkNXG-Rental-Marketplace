@@ -1,0 +1,206 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "MCU-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_name",
+  "customer_type",
+  "company_name",
+  "industry",
+  "status",
+  "verified",
+  "column_1",
+  "email",
+  "phone",
+  "country",
+  "city",
+  "tax_id",
+  "section_2",
+  "owner_user",
+  "members",
+  "section_3",
+  "erp_customer",
+  "restriction_reason"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Customer name",
+   "reqd": 1
+  },
+  {
+   "default": "Company",
+   "fieldname": "customer_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer type",
+   "options": "Company\nIndividual",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.customer_type=='Company'",
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company name"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Industry",
+   "options": "\nConstruction Company\nCivil Contractor\nBuilder\nInfrastructure Developer\nGovernment Contractor\nProcurement Team\nIndustrial Company\nIndividual"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nRestricted\nSuspended"
+  },
+  {
+   "fieldname": "verified",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Verified"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Tax ID"
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "Users"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner user",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "members",
+   "fieldtype": "Table",
+   "label": "Members",
+   "options": "Marketplace Customer Member"
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "ERP"
+  },
+  {
+   "description": "Created on first booking",
+   "fieldname": "erp_customer",
+   "fieldtype": "Link",
+   "label": "ERP customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "restriction_reason",
+   "fieldtype": "Small Text",
+   "label": "Restriction reason"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Customer",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "search_fields": "customer_name,company_name,email",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer_name",
+ "track_changes": 1
+}

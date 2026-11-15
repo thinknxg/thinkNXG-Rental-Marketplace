@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "CPS-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "project_name",
+  "site_address",
+  "city",
+  "state",
+  "country",
+  "column_1",
+  "site_contact",
+  "site_phone",
+  "site_access",
+  "latitude",
+  "longitude"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Marketplace Customer",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "site_address",
+   "fieldtype": "Small Text",
+   "label": "Site address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "site_contact",
+   "fieldtype": "Data",
+   "label": "Site contact"
+  },
+  {
+   "fieldname": "site_phone",
+   "fieldtype": "Data",
+   "label": "Site phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "site_access",
+   "fieldtype": "Small Text",
+   "label": "Site accessibility"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Customer Project Site",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "project_name",
+ "track_changes": 1
+}

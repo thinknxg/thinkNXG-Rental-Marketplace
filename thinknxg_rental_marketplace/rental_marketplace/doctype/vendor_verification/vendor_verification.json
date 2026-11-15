@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "VVR-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor",
+  "document_type",
+  "attachment",
+  "document_number",
+  "expiry_date",
+  "column_1",
+  "status",
+  "reviewed_by",
+  "reviewed_on",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Document type",
+   "options": "Commercial Registration\nTax Certificate\nTrade License\nInsurance Certificate\nBank Letter\nID of Signatory\nEquipment Certification\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_number",
+   "fieldtype": "Data",
+   "label": "Document number"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry date"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Pending\nApproved\nRejected"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reviewed_on",
+   "fieldtype": "Datetime",
+   "label": "Reviewed on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Vendor Verification",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "SET-.YYYY.-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor",
+  "status",
+  "period_from",
+  "period_to",
+  "currency",
+  "column_1",
+  "gross_amount",
+  "commission_amount",
+  "refund_amount",
+  "net_payable",
+  "section_2",
+  "approved_by",
+  "approved_on",
+  "payout_reference",
+  "payout_confirmed_on",
+  "section_3",
+  "lines"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nApproved\nPayout Initiated\nPaid\nCancelled"
+  },
+  {
+   "fieldname": "period_from",
+   "fieldtype": "Date",
+   "label": "Period from",
+   "reqd": 1
+  },
+  {
+   "fieldname": "period_to",
+   "fieldtype": "Date",
+   "label": "Period to",
+   "reqd": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gross_amount",
+   "fieldtype": "Currency",
+   "label": "Gross amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commission_amount",
+   "fieldtype": "Currency",
+   "label": "Commission amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refund_amount",
+   "fieldtype": "Currency",
+   "label": "Refund amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "net_payable",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Net payable",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "Payout"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved on",
+   "read_only": 1
+  },
+  {
+   "description": "Bank / provider payout reference \u2014 required to mark Paid",
+   "fieldname": "payout_reference",
+   "fieldtype": "Data",
+   "label": "Payout reference"
+  },
+  {
+   "fieldname": "payout_confirmed_on",
+   "fieldtype": "Datetime",
+   "label": "Payout confirmed on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "Lines"
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Lines",
+   "options": "Settlement Line"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Settlement",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

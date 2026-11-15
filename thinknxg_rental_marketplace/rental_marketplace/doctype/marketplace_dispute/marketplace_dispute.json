@@ -1,0 +1,173 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "DSP-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "booking",
+  "raised_by",
+  "raised_by_party",
+  "dispute_type",
+  "status",
+  "column_1",
+  "claimed_amount",
+  "refund_amount",
+  "resolved_by",
+  "resolved_on",
+  "section_2",
+  "description",
+  "resolution",
+  "evidence"
+ ],
+ "fields": [
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Booking",
+   "options": "Marketplace Booking",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "raised_by",
+   "fieldtype": "Link",
+   "label": "Raised by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "raised_by_party",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Raised by party",
+   "options": "Customer\nVendor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dispute_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Dispute type",
+   "options": "Damage\nLoss\nDelivery\nQuality\nBilling\nRefund\nCancellation\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nUnder Review\nResolved\nRejected\nEscalated"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "claimed_amount",
+   "fieldtype": "Currency",
+   "label": "Claimed amount"
+  },
+  {
+   "fieldname": "refund_amount",
+   "fieldtype": "Currency",
+   "label": "Refund amount"
+  },
+  {
+   "fieldname": "resolved_by",
+   "fieldtype": "Link",
+   "label": "Resolved by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resolved_on",
+   "fieldtype": "Datetime",
+   "label": "Resolved on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "resolution",
+   "fieldtype": "Text",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Attach",
+   "label": "Evidence"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Dispute",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

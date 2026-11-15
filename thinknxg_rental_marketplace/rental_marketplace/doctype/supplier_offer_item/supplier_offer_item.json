@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tender_item",
+  "equipment_name",
+  "listing",
+  "is_alternative",
+  "alternative_details",
+  "qty",
+  "uom",
+  "rate_basis",
+  "unit_rate",
+  "periods",
+  "amount",
+  "compliance",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "tender_item",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Tender item"
+  },
+  {
+   "fieldname": "equipment_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Equipment name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "listing",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Listing",
+   "options": "Marketplace Listing"
+  },
+  {
+   "fieldname": "is_alternative",
+   "fieldtype": "Check",
+   "label": "Is alternative"
+  },
+  {
+   "depends_on": "is_alternative",
+   "fieldname": "alternative_details",
+   "fieldtype": "Small Text",
+   "label": "Alternative details"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "default": "Monthly",
+   "fieldname": "rate_basis",
+   "fieldtype": "Select",
+   "label": "Rate basis",
+   "options": "Daily\nWeekly\nMonthly\nUnit"
+  },
+  {
+   "fieldname": "unit_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Unit rate",
+   "reqd": 1
+  },
+  {
+   "description": "Billable periods (server)",
+   "fieldname": "periods",
+   "fieldtype": "Float",
+   "label": "Periods",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "read_only": 1
+  },
+  {
+   "default": "Compliant",
+   "fieldname": "compliance",
+   "fieldtype": "Select",
+   "label": "Compliance",
+   "options": "Compliant\nPartial\nNon-Compliant"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Supplier Offer Item",
+ "naming_rule": "",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

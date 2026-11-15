@@ -1,0 +1,214 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "VOR-.YYYY.-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "booking",
+  "vendor",
+  "transaction_type",
+  "status",
+  "column_1",
+  "delivery_date",
+  "dispatched_on",
+  "delivered_on",
+  "return_due",
+  "returned_on",
+  "section_2",
+  "fulfilment_mode",
+  "erp_reference_doctype",
+  "erp_reference",
+  "erp_status",
+  "column_3",
+  "vehicle_details",
+  "driver_contact",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Booking",
+   "options": "Marketplace Booking",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Transaction type",
+   "options": "Hire\nSale\nContract",
+   "read_only": 1
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "New\nAccepted\nPreparing\nDispatched\nDelivered\nOn Hire\nReturn Due\nReturned\nMobilized\nActive\nDemobilized\nCompleted\nCancelled",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dispatched_on",
+   "fieldtype": "Datetime",
+   "label": "Dispatched on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivered_on",
+   "fieldtype": "Datetime",
+   "label": "Delivered on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "return_due",
+   "fieldtype": "Date",
+   "label": "Return due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "returned_on",
+   "fieldtype": "Datetime",
+   "label": "Returned on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "ERP fulfilment"
+  },
+  {
+   "default": "Marketplace",
+   "fieldname": "fulfilment_mode",
+   "fieldtype": "Select",
+   "label": "Fulfilment mode",
+   "options": "Marketplace\nthinkNXG Rental\nERPNext Sales",
+   "read_only": 1
+  },
+  {
+   "fieldname": "erp_reference_doctype",
+   "fieldtype": "Link",
+   "label": "ERP reference doctype",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "erp_reference",
+   "fieldtype": "Dynamic Link",
+   "label": "ERP reference",
+   "options": "erp_reference_doctype",
+   "read_only": 1
+  },
+  {
+   "fieldname": "erp_status",
+   "fieldtype": "Data",
+   "label": "ERP status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehicle_details",
+   "fieldtype": "Data",
+   "label": "Vehicle details"
+  },
+  {
+   "fieldname": "driver_contact",
+   "fieldtype": "Data",
+   "label": "Driver contact"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Vendor Order",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "PRM-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "promotion_type",
+  "vendor",
+  "listing",
+  "tender",
+  "status",
+  "column_1",
+  "from_date",
+  "to_date",
+  "fee",
+  "payment"
+ ],
+ "fields": [
+  {
+   "fieldname": "promotion_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Promotion type",
+   "options": "Featured Listing\nFeatured Supplier\nFeatured Tender\nPremium Visibility",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor"
+  },
+  {
+   "depends_on": "eval:doc.promotion_type=='Featured Listing'",
+   "fieldname": "listing",
+   "fieldtype": "Link",
+   "label": "Listing",
+   "options": "Marketplace Listing"
+  },
+  {
+   "depends_on": "eval:doc.promotion_type=='Featured Tender'",
+   "fieldname": "tender",
+   "fieldtype": "Link",
+   "label": "Tender",
+   "options": "Marketplace Tender"
+  },
+  {
+   "default": "Pending Payment",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Pending Payment\nActive\nExpired\nCancelled"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fee",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Fee"
+  },
+  {
+   "fieldname": "payment",
+   "fieldtype": "Link",
+   "label": "Payment",
+   "options": "Marketplace Payment",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Promotion",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

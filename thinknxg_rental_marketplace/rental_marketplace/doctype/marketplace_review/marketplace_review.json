@@ -1,0 +1,170 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "REV-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "booking",
+  "vendor",
+  "customer",
+  "status",
+  "column_1",
+  "rating",
+  "quality_rating",
+  "delivery_rating",
+  "communication_rating",
+  "section_2",
+  "title",
+  "comment",
+  "vendor_response",
+  "reviewer_display_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Booking",
+   "options": "Marketplace Booking",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Marketplace Customer",
+   "reqd": 1
+  },
+  {
+   "default": "Pending Moderation",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Pending Moderation\nPublished\nHidden"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "in_list_view": 1,
+   "label": "Rating",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quality_rating",
+   "fieldtype": "Rating",
+   "label": "Quality rating"
+  },
+  {
+   "fieldname": "delivery_rating",
+   "fieldtype": "Rating",
+   "label": "Delivery rating"
+  },
+  {
+   "fieldname": "communication_rating",
+   "fieldtype": "Rating",
+   "label": "Communication rating"
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "Review"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Text",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "vendor_response",
+   "fieldtype": "Small Text",
+   "label": "Vendor response"
+  },
+  {
+   "fieldname": "reviewer_display_name",
+   "fieldtype": "Data",
+   "label": "Reviewer display name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Review",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

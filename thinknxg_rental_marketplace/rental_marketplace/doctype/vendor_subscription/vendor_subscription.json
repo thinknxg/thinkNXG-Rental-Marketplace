@@ -1,0 +1,192 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "VSB-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor",
+  "plan",
+  "status",
+  "change_type",
+  "billing_cycle",
+  "column_1",
+  "start_date",
+  "end_date",
+  "grace_end",
+  "auto_renew",
+  "section_2",
+  "currency",
+  "amount",
+  "payment",
+  "previous_subscription",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Plan",
+   "options": "Marketplace Subscription Plan",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Trial\nActive\nGrace\nExpired\nCancelled\nSuperseded\nPending Payment",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "New",
+   "fieldname": "change_type",
+   "fieldtype": "Select",
+   "label": "Change type",
+   "options": "New\nTrial\nRenewal\nUpgrade\nDowngrade"
+  },
+  {
+   "default": "Monthly",
+   "fieldname": "billing_cycle",
+   "fieldtype": "Select",
+   "label": "Billing cycle",
+   "options": "Monthly\nYearly"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "grace_end",
+   "fieldtype": "Date",
+   "label": "Grace end"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_renew",
+   "fieldtype": "Check",
+   "label": "Auto renew"
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "options": "currency"
+  },
+  {
+   "fieldname": "payment",
+   "fieldtype": "Link",
+   "label": "Payment",
+   "options": "Marketplace Payment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "previous_subscription",
+   "fieldtype": "Link",
+   "label": "Previous subscription",
+   "options": "Vendor Subscription",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Vendor Subscription",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

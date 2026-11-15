@@ -1,0 +1,256 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "PAY-.YYYY.-.######",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "payment_type",
+  "status",
+  "booking",
+  "customer",
+  "vendor",
+  "subscription",
+  "promotion",
+  "column_1",
+  "currency",
+  "amount",
+  "refunded_amount",
+  "refund_of",
+  "schedule_line",
+  "section_2",
+  "gateway",
+  "gateway_reference",
+  "checkout_url",
+  "confirmed_on",
+  "confirmed_by",
+  "column_3",
+  "payer_reference",
+  "failure_reason",
+  "idempotency_key",
+  "gateway_response"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payment type",
+   "options": "Deposit\nAdvance\nBalance\nRental\nSecurity Deposit\nAdditional Charge\nRefund\nCancellation Fee\nSubscription\nListing Fee\nFeatured Fee",
+   "reqd": 1
+  },
+  {
+   "default": "Initiated",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Initiated\nPending\nSucceeded\nFailed\nRefunded\nPartially Refunded\nCancelled",
+   "search_index": 1
+  },
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Booking",
+   "options": "Marketplace Booking",
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Marketplace Customer",
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "search_index": 1
+  },
+  {
+   "fieldname": "subscription",
+   "fieldtype": "Link",
+   "label": "Subscription",
+   "options": "Vendor Subscription"
+  },
+  {
+   "fieldname": "promotion",
+   "fieldtype": "Link",
+   "label": "Promotion",
+   "options": "Marketplace Promotion"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "refunded_amount",
+   "fieldtype": "Currency",
+   "label": "Refunded amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refund_of",
+   "fieldtype": "Link",
+   "label": "Refund of",
+   "options": "Marketplace Payment"
+  },
+  {
+   "fieldname": "schedule_line",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Schedule line"
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "Gateway"
+  },
+  {
+   "default": "Manual",
+   "fieldname": "gateway",
+   "fieldtype": "Select",
+   "label": "Gateway",
+   "options": "Manual\nStripe\nRazorpay",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gateway_reference",
+   "fieldtype": "Data",
+   "label": "Gateway reference",
+   "search_index": 1
+  },
+  {
+   "fieldname": "checkout_url",
+   "fieldtype": "Small Text",
+   "label": "Checkout URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "confirmed_on",
+   "fieldtype": "Datetime",
+   "label": "Confirmed on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "confirmed_by",
+   "fieldtype": "Link",
+   "label": "Confirmed by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Bank transfer reference given by the payer",
+   "fieldname": "payer_reference",
+   "fieldtype": "Data",
+   "label": "Payer reference"
+  },
+  {
+   "fieldname": "failure_reason",
+   "fieldtype": "Small Text",
+   "label": "Failure reason",
+   "read_only": 1
+  },
+  {
+   "fieldname": "idempotency_key",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Idempotency key",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "gateway_response",
+   "fieldtype": "Code",
+   "label": "Gateway response",
+   "options": "JSON",
+   "permlevel": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Payment",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

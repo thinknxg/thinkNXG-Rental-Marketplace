@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "gateway",
+  "event_id",
+  "event_type",
+  "processed",
+  "payment",
+  "error",
+  "payload"
+ ],
+ "fields": [
+  {
+   "fieldname": "gateway",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Gateway",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Event ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Event type"
+  },
+  {
+   "fieldname": "processed",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Processed"
+  },
+  {
+   "fieldname": "payment",
+   "fieldtype": "Link",
+   "label": "Payment",
+   "options": "Marketplace Payment"
+  },
+  {
+   "fieldname": "error",
+   "fieldtype": "Small Text",
+   "label": "Error"
+  },
+  {
+   "fieldname": "payload",
+   "fieldtype": "Code",
+   "label": "Payload",
+   "options": "JSON"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Webhook Event",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

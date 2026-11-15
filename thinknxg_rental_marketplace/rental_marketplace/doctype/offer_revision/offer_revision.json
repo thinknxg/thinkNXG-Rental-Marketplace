@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "OFR-.######",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "offer",
+  "tender",
+  "vendor",
+  "revision_no",
+  "grand_total",
+  "submitted_on",
+  "submitted_by",
+  "reason",
+  "snapshot"
+ ],
+ "fields": [
+  {
+   "fieldname": "offer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Offer",
+   "options": "Supplier Offer",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "tender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tender",
+   "options": "Marketplace Tender",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "revision_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Revision no",
+   "reqd": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Grand total"
+  },
+  {
+   "fieldname": "submitted_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Submitted on"
+  },
+  {
+   "fieldname": "submitted_by",
+   "fieldtype": "Link",
+   "label": "Submitted by",
+   "options": "User"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "snapshot",
+   "fieldtype": "JSON",
+   "label": "Snapshot",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Offer Revision",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

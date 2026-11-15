@@ -1,0 +1,489 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "TND-.YYYY.-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_1",
+  "title",
+  "rental_request",
+  "customer",
+  "transaction_type",
+  "category",
+  "status",
+  "column_2",
+  "tender_type",
+  "visibility",
+  "confidentiality",
+  "disclosure_stage",
+  "evaluation_method",
+  "featured",
+  "section_3",
+  "published_on",
+  "opening_date",
+  "submission_deadline",
+  "column_4",
+  "closing_date",
+  "awarded_on",
+  "extension_count",
+  "section_5",
+  "items",
+  "required_from",
+  "required_to",
+  "duration_days",
+  "contract_start",
+  "contract_months",
+  "expected_delivery_date",
+  "column_6",
+  "city",
+  "state",
+  "country",
+  "currency",
+  "budget_max",
+  "show_budget",
+  "section_7",
+  "require_verified",
+  "min_vendor_rating",
+  "required_qualifications",
+  "terms",
+  "allow_revisions",
+  "max_revisions",
+  "allow_alternatives",
+  "reserve_price",
+  "min_decrement_percent",
+  "criteria",
+  "section_8",
+  "invited_count",
+  "offers_count",
+  "awarded_offer",
+  "awarded_vendor",
+  "booking",
+  "column_9",
+  "cancel_reason",
+  "moderation_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_1",
+   "fieldtype": "Section Break",
+   "label": "Tender"
+  },
+  {
+   "bold": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rental_request",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Rental request",
+   "options": "Rental Request",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Marketplace Customer",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction type",
+   "options": "Hire\nSale\nContract",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "Marketplace Category",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nPublished\nSupplier Matching\nInvitation Sent\nBidding Open\nBidding Closed\nEvaluation\nAwarded\nCancelled\nExpired\nSuspended",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Open",
+   "fieldname": "tender_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Tender type",
+   "options": "Open\nInvited\nRestricted\nPrivate\nNegotiated\nReverse Auction",
+   "reqd": 1
+  },
+  {
+   "default": "Verified Suppliers",
+   "fieldname": "visibility",
+   "fieldtype": "Select",
+   "label": "Visibility",
+   "options": "Public Marketplace\nVerified Suppliers\nCategory Restricted\nLocation Restricted\nSelected Suppliers",
+   "reqd": 1
+  },
+  {
+   "default": "Sealed",
+   "fieldname": "confidentiality",
+   "fieldtype": "Select",
+   "label": "Confidentiality",
+   "options": "Sealed\nRank Only\nOpen",
+   "reqd": 1
+  },
+  {
+   "default": "On Award",
+   "fieldname": "disclosure_stage",
+   "fieldtype": "Select",
+   "label": "Disclosure stage",
+   "options": "On Award\nOn Shortlist\nAlways",
+   "reqd": 1
+  },
+  {
+   "default": "Customer Choice",
+   "fieldname": "evaluation_method",
+   "fieldtype": "Select",
+   "label": "Evaluation method",
+   "options": "Customer Choice\nLowest Price\nWeighted Score",
+   "reqd": 1
+  },
+  {
+   "fieldname": "featured",
+   "fieldtype": "Check",
+   "label": "Featured",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "Dates"
+  },
+  {
+   "fieldname": "published_on",
+   "fieldtype": "Datetime",
+   "label": "Published on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "opening_date",
+   "fieldtype": "Datetime",
+   "label": "Opening date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submission_deadline",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Submission deadline",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "closing_date",
+   "fieldtype": "Datetime",
+   "label": "Closing date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "awarded_on",
+   "fieldtype": "Datetime",
+   "label": "Awarded on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "extension_count",
+   "fieldtype": "Int",
+   "label": "Extension count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_5",
+   "fieldtype": "Section Break",
+   "label": "Requirement snapshot"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Tender Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "required_from",
+   "fieldtype": "Date",
+   "label": "Required from"
+  },
+  {
+   "fieldname": "required_to",
+   "fieldtype": "Date",
+   "label": "Required to"
+  },
+  {
+   "fieldname": "duration_days",
+   "fieldtype": "Int",
+   "label": "Duration days"
+  },
+  {
+   "fieldname": "contract_start",
+   "fieldtype": "Date",
+   "label": "Contract start"
+  },
+  {
+   "fieldname": "contract_months",
+   "fieldtype": "Int",
+   "label": "Contract months"
+  },
+  {
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected delivery date"
+  },
+  {
+   "fieldname": "column_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "City"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "description": "Never shown to suppliers unless Show Budget",
+   "fieldname": "budget_max",
+   "fieldtype": "Currency",
+   "label": "Budget max",
+   "options": "currency"
+  },
+  {
+   "fieldname": "show_budget",
+   "fieldtype": "Check",
+   "label": "Show budget"
+  },
+  {
+   "fieldname": "section_7",
+   "fieldtype": "Section Break",
+   "label": "Rules"
+  },
+  {
+   "default": "1",
+   "fieldname": "require_verified",
+   "fieldtype": "Check",
+   "label": "Require verified"
+  },
+  {
+   "fieldname": "min_vendor_rating",
+   "fieldtype": "Float",
+   "label": "Min vendor rating"
+  },
+  {
+   "fieldname": "required_qualifications",
+   "fieldtype": "Small Text",
+   "label": "Required qualifications"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Text",
+   "label": "Terms"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_revisions",
+   "fieldtype": "Check",
+   "label": "Allow revisions"
+  },
+  {
+   "default": "5",
+   "fieldname": "max_revisions",
+   "fieldtype": "Int",
+   "label": "Max revisions"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_alternatives",
+   "fieldtype": "Check",
+   "label": "Allow alternatives"
+  },
+  {
+   "depends_on": "eval:doc.tender_type=='Reverse Auction'",
+   "description": "Reverse auction ceiling",
+   "fieldname": "reserve_price",
+   "fieldtype": "Currency",
+   "label": "Reserve price",
+   "options": "currency"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval:doc.tender_type=='Reverse Auction'",
+   "fieldname": "min_decrement_percent",
+   "fieldtype": "Percent",
+   "label": "Min decrement percent"
+  },
+  {
+   "fieldname": "criteria",
+   "fieldtype": "Table",
+   "label": "Criteria",
+   "options": "Tender Evaluation Criterion"
+  },
+  {
+   "fieldname": "section_8",
+   "fieldtype": "Section Break",
+   "label": "Outcome"
+  },
+  {
+   "fieldname": "invited_count",
+   "fieldtype": "Int",
+   "label": "Invited count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "offers_count",
+   "fieldtype": "Int",
+   "label": "Offers count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "awarded_offer",
+   "fieldtype": "Link",
+   "label": "Awarded offer",
+   "options": "Supplier Offer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "awarded_vendor",
+   "fieldtype": "Link",
+   "label": "Awarded vendor",
+   "options": "Marketplace Vendor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "label": "Booking",
+   "options": "Marketplace Booking",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cancel_reason",
+   "fieldtype": "Small Text",
+   "label": "Cancel reason"
+  },
+  {
+   "fieldname": "moderation_notes",
+   "fieldtype": "Small Text",
+   "label": "Moderation notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Tender",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "search_fields": "title,city",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

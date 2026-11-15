@@ -1,0 +1,206 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:category_name",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "category_name",
+  "parent_marketplace_category",
+  "is_group",
+  "route",
+  "icon",
+  "column_1",
+  "image",
+  "sort_order",
+  "show_on_website",
+  "allow_hire",
+  "allow_sale",
+  "allow_contract",
+  "section_2",
+  "description",
+  "attributes",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "category_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Category name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "parent_marketplace_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Category",
+   "options": "Marketplace Category"
+  },
+  {
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is group"
+  },
+  {
+   "description": "URL slug",
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "description": "Icon key (e.g. scaffold, formwork, crane)",
+   "fieldname": "icon",
+   "fieldtype": "Data",
+   "label": "Icon"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "sort_order",
+   "fieldtype": "Int",
+   "label": "Sort order"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_on_website",
+   "fieldtype": "Check",
+   "label": "Show on website"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_hire",
+   "fieldtype": "Check",
+   "label": "Allow hire"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_sale",
+   "fieldtype": "Check",
+   "label": "Allow sale"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_contract",
+   "fieldtype": "Check",
+   "label": "Allow contract"
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "attributes",
+   "fieldtype": "Table",
+   "label": "Attributes",
+   "options": "Category Attribute"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old parent",
+   "options": "Marketplace Category",
+   "read_only": 1
+  }
+ ],
+ "image_field": "image",
+ "index_web_pages_for_search": 0,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Category",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_marketplace_category",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "search_fields": "category_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "category_name",
+ "track_changes": 1
+}

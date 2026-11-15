@@ -1,0 +1,433 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "OFF-.YYYY.-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_1",
+  "tender",
+  "vendor",
+  "status",
+  "revision_no",
+  "column_2",
+  "rental_request",
+  "customer",
+  "transaction_type",
+  "currency",
+  "submitted_on",
+  "shortlisted",
+  "section_3",
+  "rate_basis",
+  "rental_period_days",
+  "contract_months",
+  "delivery_date",
+  "availability_confirmed",
+  "column_4",
+  "valid_until",
+  "payment_terms",
+  "technical_compliance",
+  "compliance_notes",
+  "commercial_conditions",
+  "section_5",
+  "items",
+  "section_6",
+  "security_deposit",
+  "transport_charges",
+  "loading_charges",
+  "installation_charges",
+  "column_7",
+  "mobilization_charges",
+  "demobilization_charges",
+  "tax_percent",
+  "section_8",
+  "subtotal",
+  "charges_total",
+  "tax_amount",
+  "column_9",
+  "grand_total",
+  "comparable_total",
+  "section_10",
+  "technical_score",
+  "commercial_score",
+  "total_score",
+  "rank",
+  "rejection_reason",
+  "attachments",
+  "idempotency_key"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_1",
+   "fieldtype": "Section Break",
+   "label": "Offer"
+  },
+  {
+   "fieldname": "tender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tender",
+   "options": "Marketplace Tender",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nUnder Review\nTechnically Accepted\nTechnically Rejected\nCommercially Accepted\nAccepted\nRejected\nNot Awarded\nWithdrawn\nExpired\nSuperseded",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "revision_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Revision no",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rental_request",
+   "fieldtype": "Link",
+   "label": "Rental request",
+   "options": "Rental Request",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Marketplace Customer",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "label": "Transaction type",
+   "options": "Hire\nSale\nContract",
+   "read_only": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submitted_on",
+   "fieldtype": "Datetime",
+   "label": "Submitted on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shortlisted",
+   "fieldtype": "Check",
+   "label": "Shortlisted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "Commercial"
+  },
+  {
+   "default": "Monthly",
+   "fieldname": "rate_basis",
+   "fieldtype": "Select",
+   "label": "Rate basis",
+   "options": "Daily\nWeekly\nMonthly\nUnit"
+  },
+  {
+   "description": "Hire: offered rental days",
+   "fieldname": "rental_period_days",
+   "fieldtype": "Int",
+   "label": "Rental period days"
+  },
+  {
+   "fieldname": "contract_months",
+   "fieldtype": "Int",
+   "label": "Contract months"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "availability_confirmed",
+   "fieldtype": "Check",
+   "label": "Availability confirmed"
+  },
+  {
+   "fieldname": "column_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valid_until",
+   "fieldtype": "Date",
+   "label": "Valid until",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Small Text",
+   "label": "Payment terms"
+  },
+  {
+   "default": "Full",
+   "fieldname": "technical_compliance",
+   "fieldtype": "Select",
+   "label": "Technical compliance",
+   "options": "Full\nPartial\nAlternative"
+  },
+  {
+   "fieldname": "compliance_notes",
+   "fieldtype": "Small Text",
+   "label": "Compliance notes"
+  },
+  {
+   "fieldname": "commercial_conditions",
+   "fieldtype": "Small Text",
+   "label": "Commercial conditions"
+  },
+  {
+   "fieldname": "section_5",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Supplier Offer Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_6",
+   "fieldtype": "Section Break",
+   "label": "Charges"
+  },
+  {
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security deposit",
+   "options": "currency"
+  },
+  {
+   "fieldname": "transport_charges",
+   "fieldtype": "Currency",
+   "label": "Transport charges",
+   "options": "currency"
+  },
+  {
+   "fieldname": "loading_charges",
+   "fieldtype": "Currency",
+   "label": "Loading / unloading charges",
+   "options": "currency"
+  },
+  {
+   "fieldname": "installation_charges",
+   "fieldtype": "Currency",
+   "label": "Installation charges",
+   "options": "currency"
+  },
+  {
+   "fieldname": "column_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobilization_charges",
+   "fieldtype": "Currency",
+   "label": "Mobilization charges",
+   "options": "currency"
+  },
+  {
+   "fieldname": "demobilization_charges",
+   "fieldtype": "Currency",
+   "label": "Demobilization charges",
+   "options": "currency"
+  },
+  {
+   "default": "5",
+   "fieldname": "tax_percent",
+   "fieldtype": "Percent",
+   "label": "Tax percent"
+  },
+  {
+   "fieldname": "section_8",
+   "fieldtype": "Section Break",
+   "label": "Totals (server calculated)"
+  },
+  {
+   "fieldname": "subtotal",
+   "fieldtype": "Currency",
+   "label": "Subtotal",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "charges_total",
+   "fieldtype": "Currency",
+   "label": "Charges total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Grand total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "description": "Grand total excluding refundable deposit",
+   "fieldname": "comparable_total",
+   "fieldtype": "Currency",
+   "label": "Comparable total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_10",
+   "fieldtype": "Section Break",
+   "label": "Evaluation"
+  },
+  {
+   "fieldname": "technical_score",
+   "fieldtype": "Float",
+   "label": "Technical score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commercial_score",
+   "fieldtype": "Float",
+   "label": "Commercial score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_score",
+   "fieldtype": "Float",
+   "label": "Total score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rank",
+   "fieldtype": "Int",
+   "label": "Rank",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection reason",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Offer Attachment"
+  },
+  {
+   "fieldname": "idempotency_key",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Idempotency key",
+   "no_copy": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Supplier Offer",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "search_fields": "vendor,tender",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,437 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_1",
+  "marketplace_name",
+  "company",
+  "default_currency",
+  "default_country",
+  "column_2",
+  "support_email",
+  "support_phone",
+  "sales_email",
+  "section_3",
+  "auto_publish_tenders",
+  "default_tender_type",
+  "default_visibility",
+  "default_confidentiality",
+  "default_disclosure_stage",
+  "column_4",
+  "default_bidding_hours",
+  "min_bidding_hours",
+  "max_invitations",
+  "max_revisions",
+  "min_match_score",
+  "default_offer_validity_days",
+  "section_5",
+  "default_deposit_percent",
+  "payment_hold_hours",
+  "payment_gateway",
+  "stripe_secret_key",
+  "stripe_webhook_secret",
+  "column_6",
+  "razorpay_key_id",
+  "razorpay_key_secret",
+  "razorpay_webhook_secret",
+  "cancellation_fee_percent",
+  "free_cancellation_hours",
+  "section_7",
+  "default_commission_basis",
+  "default_commission_rate",
+  "default_commission_fixed",
+  "column_8",
+  "subscription_required",
+  "default_trial_plan",
+  "trial_days",
+  "grace_days",
+  "section_9",
+  "use_rental_engine",
+  "auto_create_erp_documents",
+  "section_10",
+  "hero_title",
+  "hero_subtitle",
+  "hero_image",
+  "column_11",
+  "primary_color",
+  "accent_color",
+  "show_public_tenders",
+  "terms_content",
+  "privacy_content"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_1",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "default": "thinkNXG Rental Marketplace",
+   "fieldname": "marketplace_name",
+   "fieldtype": "Data",
+   "label": "Marketplace name",
+   "reqd": 1
+  },
+  {
+   "description": "Platform operator company (commissions, subscriptions)",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "default": "OMR",
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_country",
+   "fieldtype": "Link",
+   "label": "Default country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "column_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "support_email",
+   "fieldtype": "Data",
+   "label": "Support email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "support_phone",
+   "fieldtype": "Data",
+   "label": "Support phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "sales_email",
+   "fieldtype": "Data",
+   "label": "Sales email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "Tenders"
+  },
+  {
+   "default": "1",
+   "description": "Publish and match automatically on request submission",
+   "fieldname": "auto_publish_tenders",
+   "fieldtype": "Check",
+   "label": "Auto publish tenders"
+  },
+  {
+   "default": "Open",
+   "fieldname": "default_tender_type",
+   "fieldtype": "Select",
+   "label": "Default tender type",
+   "options": "Open\nInvited\nRestricted\nPrivate\nNegotiated\nReverse Auction"
+  },
+  {
+   "default": "Verified Suppliers",
+   "fieldname": "default_visibility",
+   "fieldtype": "Select",
+   "label": "Default visibility",
+   "options": "Public Marketplace\nVerified Suppliers\nCategory Restricted\nLocation Restricted\nSelected Suppliers"
+  },
+  {
+   "default": "Sealed",
+   "fieldname": "default_confidentiality",
+   "fieldtype": "Select",
+   "label": "Default confidentiality",
+   "options": "Sealed\nRank Only\nOpen"
+  },
+  {
+   "default": "On Award",
+   "fieldname": "default_disclosure_stage",
+   "fieldtype": "Select",
+   "label": "Default disclosure stage",
+   "options": "On Award\nOn Shortlist\nAlways"
+  },
+  {
+   "fieldname": "column_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "72",
+   "fieldname": "default_bidding_hours",
+   "fieldtype": "Int",
+   "label": "Default bidding hours"
+  },
+  {
+   "default": "4",
+   "fieldname": "min_bidding_hours",
+   "fieldtype": "Int",
+   "label": "Min bidding hours"
+  },
+  {
+   "default": "25",
+   "fieldname": "max_invitations",
+   "fieldtype": "Int",
+   "label": "Max invitations"
+  },
+  {
+   "default": "5",
+   "fieldname": "max_revisions",
+   "fieldtype": "Int",
+   "label": "Max revisions"
+  },
+  {
+   "default": "30",
+   "fieldname": "min_match_score",
+   "fieldtype": "Float",
+   "label": "Min match score"
+  },
+  {
+   "default": "14",
+   "fieldname": "default_offer_validity_days",
+   "fieldtype": "Int",
+   "label": "Default offer validity days"
+  },
+  {
+   "fieldname": "section_5",
+   "fieldtype": "Section Break",
+   "label": "Bookings & Payments"
+  },
+  {
+   "default": "20",
+   "fieldname": "default_deposit_percent",
+   "fieldtype": "Percent",
+   "label": "Default deposit percent"
+  },
+  {
+   "default": "48",
+   "description": "Unpaid bookings are cancelled and allocation released after this",
+   "fieldname": "payment_hold_hours",
+   "fieldtype": "Int",
+   "label": "Payment hold hours"
+  },
+  {
+   "default": "Manual",
+   "fieldname": "payment_gateway",
+   "fieldtype": "Select",
+   "label": "Payment gateway",
+   "options": "Manual\nStripe\nRazorpay"
+  },
+  {
+   "depends_on": "eval:doc.payment_gateway=='Stripe'",
+   "fieldname": "stripe_secret_key",
+   "fieldtype": "Password",
+   "label": "Stripe secret key"
+  },
+  {
+   "depends_on": "eval:doc.payment_gateway=='Stripe'",
+   "fieldname": "stripe_webhook_secret",
+   "fieldtype": "Password",
+   "label": "Stripe webhook secret"
+  },
+  {
+   "fieldname": "column_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.payment_gateway=='Razorpay'",
+   "fieldname": "razorpay_key_id",
+   "fieldtype": "Data",
+   "label": "Razorpay key ID"
+  },
+  {
+   "depends_on": "eval:doc.payment_gateway=='Razorpay'",
+   "fieldname": "razorpay_key_secret",
+   "fieldtype": "Password",
+   "label": "Razorpay key secret"
+  },
+  {
+   "depends_on": "eval:doc.payment_gateway=='Razorpay'",
+   "fieldname": "razorpay_webhook_secret",
+   "fieldtype": "Password",
+   "label": "Razorpay webhook secret"
+  },
+  {
+   "default": "10",
+   "fieldname": "cancellation_fee_percent",
+   "fieldtype": "Percent",
+   "label": "Cancellation fee percent"
+  },
+  {
+   "default": "24",
+   "fieldname": "free_cancellation_hours",
+   "fieldtype": "Int",
+   "label": "Free cancellation hours"
+  },
+  {
+   "fieldname": "section_7",
+   "fieldtype": "Section Break",
+   "label": "Commission & Subscriptions"
+  },
+  {
+   "default": "Percentage",
+   "fieldname": "default_commission_basis",
+   "fieldtype": "Select",
+   "label": "Default commission basis",
+   "options": "Percentage\nFixed"
+  },
+  {
+   "default": "5",
+   "fieldname": "default_commission_rate",
+   "fieldtype": "Float",
+   "label": "Default commission rate"
+  },
+  {
+   "fieldname": "default_commission_fixed",
+   "fieldtype": "Currency",
+   "label": "Default commission fixed"
+  },
+  {
+   "fieldname": "column_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Vendors need an active or trial subscription to list and bid",
+   "fieldname": "subscription_required",
+   "fieldtype": "Check",
+   "label": "Subscription required"
+  },
+  {
+   "fieldname": "default_trial_plan",
+   "fieldtype": "Link",
+   "label": "Default trial plan",
+   "options": "Marketplace Subscription Plan"
+  },
+  {
+   "default": "30",
+   "fieldname": "trial_days",
+   "fieldtype": "Int",
+   "label": "Trial days"
+  },
+  {
+   "default": "7",
+   "fieldname": "grace_days",
+   "fieldtype": "Int",
+   "label": "Grace days"
+  },
+  {
+   "fieldname": "section_9",
+   "fieldtype": "Section Break",
+   "label": "thinkNXG Rental integration"
+  },
+  {
+   "default": "1",
+   "description": "When thinkNXG Rental is installed and a vendor has an ERP company, bookings create Hire Orders / Sales Orders",
+   "fieldname": "use_rental_engine",
+   "fieldtype": "Check",
+   "label": "Use rental engine"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_create_erp_documents",
+   "fieldtype": "Check",
+   "label": "Auto create ERP documents"
+  },
+  {
+   "fieldname": "section_10",
+   "fieldtype": "Section Break",
+   "label": "Website"
+  },
+  {
+   "default": "One Requirement. Multiple Offers. Smarter Equipment Sourcing.",
+   "fieldname": "hero_title",
+   "fieldtype": "Data",
+   "label": "Hero title"
+  },
+  {
+   "fieldname": "hero_subtitle",
+   "fieldtype": "Small Text",
+   "label": "Hero subtitle"
+  },
+  {
+   "fieldname": "hero_image",
+   "fieldtype": "Attach Image",
+   "label": "Hero image"
+  },
+  {
+   "fieldname": "column_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#0B1F3A",
+   "fieldname": "primary_color",
+   "fieldtype": "Color",
+   "label": "Primary color"
+  },
+  {
+   "default": "#F5A623",
+   "fieldname": "accent_color",
+   "fieldtype": "Color",
+   "label": "Accent color"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_public_tenders",
+   "fieldtype": "Check",
+   "label": "Show public tenders"
+  },
+  {
+   "fieldname": "terms_content",
+   "fieldtype": "Text Editor",
+   "label": "Terms content"
+  },
+  {
+   "fieldname": "privacy_content",
+   "fieldtype": "Text Editor",
+   "label": "Privacy content"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Settings",
+ "naming_rule": "",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Marketplace Finance"
+  },
+  {
+   "read": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

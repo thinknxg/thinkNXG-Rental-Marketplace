@@ -1,0 +1,418 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "LST-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_1",
+  "vendor",
+  "title",
+  "category",
+  "status",
+  "route",
+  "column_2",
+  "cover_image",
+  "featured",
+  "featured_until",
+  "item",
+  "section_3",
+  "allow_hire",
+  "allow_sale",
+  "allow_contract",
+  "column_4",
+  "brand",
+  "model",
+  "condition",
+  "manufacture_year",
+  "section_5",
+  "uom",
+  "total_qty",
+  "min_order_qty",
+  "column_6",
+  "available_today",
+  "weight_per_unit_kg",
+  "section_7",
+  "currency",
+  "daily_rate",
+  "weekly_rate",
+  "monthly_rate",
+  "min_hire_days",
+  "security_deposit_rate",
+  "column_8",
+  "sale_price",
+  "contract_monthly_rate",
+  "min_contract_months",
+  "delivery_available",
+  "installation_available",
+  "section_9",
+  "short_description",
+  "description",
+  "certifications",
+  "warranty",
+  "datasheet",
+  "specifications",
+  "images"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_1",
+   "fieldtype": "Section Break",
+   "label": "Listing"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "Marketplace Category",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nPublished\nPaused\nArchived\nSuspended",
+   "search_index": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cover_image",
+   "fieldtype": "Attach Image",
+   "label": "Cover image"
+  },
+  {
+   "fieldname": "featured",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Featured",
+   "read_only": 1
+  },
+  {
+   "fieldname": "featured_until",
+   "fieldtype": "Date",
+   "label": "Featured until",
+   "read_only": 1
+  },
+  {
+   "description": "ERPNext Item (ERP-connected vendors)",
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "Offering"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_hire",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Allow hire"
+  },
+  {
+   "fieldname": "allow_sale",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Allow sale"
+  },
+  {
+   "fieldname": "allow_contract",
+   "fieldtype": "Check",
+   "label": "Allow contract"
+  },
+  {
+   "fieldname": "column_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "label": "Brand"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "default": "Used - Good",
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "label": "Condition",
+   "options": "New\nUsed - Excellent\nUsed - Good\nRefurbished"
+  },
+  {
+   "fieldname": "manufacture_year",
+   "fieldtype": "Int",
+   "label": "Manufacture year"
+  },
+  {
+   "fieldname": "section_5",
+   "fieldtype": "Section Break",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total qty",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "min_order_qty",
+   "fieldtype": "Float",
+   "label": "Min order qty"
+  },
+  {
+   "fieldname": "column_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Total less active allocations today",
+   "fieldname": "available_today",
+   "fieldtype": "Float",
+   "label": "Available today",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight_per_unit_kg",
+   "fieldtype": "Float",
+   "label": "Weight per unit (kg)"
+  },
+  {
+   "fieldname": "section_7",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "default": "OMR",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "depends_on": "allow_hire",
+   "fieldname": "daily_rate",
+   "fieldtype": "Currency",
+   "label": "Daily rate",
+   "options": "currency"
+  },
+  {
+   "depends_on": "allow_hire",
+   "fieldname": "weekly_rate",
+   "fieldtype": "Currency",
+   "label": "Weekly rate",
+   "options": "currency"
+  },
+  {
+   "depends_on": "allow_hire",
+   "fieldname": "monthly_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Monthly rate",
+   "options": "currency"
+  },
+  {
+   "default": "1",
+   "depends_on": "allow_hire",
+   "fieldname": "min_hire_days",
+   "fieldtype": "Int",
+   "label": "Min hire days"
+  },
+  {
+   "depends_on": "allow_hire",
+   "description": "Per unit",
+   "fieldname": "security_deposit_rate",
+   "fieldtype": "Currency",
+   "label": "Security deposit rate",
+   "options": "currency"
+  },
+  {
+   "fieldname": "column_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "allow_sale",
+   "fieldname": "sale_price",
+   "fieldtype": "Currency",
+   "label": "Sale price",
+   "options": "currency"
+  },
+  {
+   "depends_on": "allow_contract",
+   "fieldname": "contract_monthly_rate",
+   "fieldtype": "Currency",
+   "label": "Contract monthly rate",
+   "options": "currency"
+  },
+  {
+   "default": "3",
+   "depends_on": "allow_contract",
+   "fieldname": "min_contract_months",
+   "fieldtype": "Int",
+   "label": "Min contract months"
+  },
+  {
+   "default": "1",
+   "fieldname": "delivery_available",
+   "fieldtype": "Check",
+   "label": "Delivery available"
+  },
+  {
+   "fieldname": "installation_available",
+   "fieldtype": "Check",
+   "label": "Installation available"
+  },
+  {
+   "fieldname": "section_9",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "short_description",
+   "fieldtype": "Small Text",
+   "label": "Short description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "certifications",
+   "fieldtype": "Small Text",
+   "label": "Certifications"
+  },
+  {
+   "depends_on": "allow_sale",
+   "fieldname": "warranty",
+   "fieldtype": "Small Text",
+   "label": "Warranty"
+  },
+  {
+   "fieldname": "datasheet",
+   "fieldtype": "Attach",
+   "label": "Datasheet"
+  },
+  {
+   "fieldname": "specifications",
+   "fieldtype": "Table",
+   "label": "Specifications",
+   "options": "Listing Specification"
+  },
+  {
+   "fieldname": "images",
+   "fieldtype": "Table",
+   "label": "Images",
+   "options": "Listing Image"
+  }
+ ],
+ "image_field": "cover_image",
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Listing",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "search_fields": "title,brand,model",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

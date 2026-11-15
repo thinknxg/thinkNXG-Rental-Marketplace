@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "OEV-.######",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tender",
+  "offer",
+  "evaluator",
+  "evaluation_type",
+  "technical_result",
+  "commercial_result",
+  "total_score",
+  "scores",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "tender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tender",
+   "options": "Marketplace Tender",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "offer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Offer",
+   "options": "Supplier Offer",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "evaluator",
+   "fieldtype": "Link",
+   "label": "Evaluator",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "default": "Automatic",
+   "fieldname": "evaluation_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Evaluation type",
+   "options": "Automatic\nCustomer\nOperator"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "technical_result",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Technical result",
+   "options": "Pending\nAccepted\nRejected"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "commercial_result",
+   "fieldtype": "Select",
+   "label": "Commercial result",
+   "options": "Pending\nAccepted\nRejected"
+  },
+  {
+   "fieldname": "total_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "scores",
+   "fieldtype": "Table",
+   "label": "Scores",
+   "options": "Offer Evaluation Score"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Offer Evaluation",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

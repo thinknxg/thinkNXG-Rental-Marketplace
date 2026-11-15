@@ -1,0 +1,519 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "BKG-.YYYY.-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_1",
+  "tender",
+  "offer",
+  "offer_revision",
+  "rental_request",
+  "status",
+  "column_2",
+  "customer",
+  "vendor",
+  "transaction_type",
+  "accepted_by",
+  "accepted_on",
+  "payment_due_by",
+  "section_3",
+  "start_date",
+  "end_date",
+  "delivery_date",
+  "column_4",
+  "project_name",
+  "site_address",
+  "city",
+  "country",
+  "section_5",
+  "items",
+  "section_6",
+  "currency",
+  "subtotal",
+  "charges_total",
+  "tax_amount",
+  "grand_total",
+  "column_7",
+  "security_deposit",
+  "deposit_required",
+  "amount_paid",
+  "amount_refunded",
+  "balance_due",
+  "additional_charges",
+  "section_8",
+  "commission_rule",
+  "commission_basis",
+  "commission_rate",
+  "commission_amount",
+  "section_9",
+  "schedule",
+  "section_10",
+  "vendor_order",
+  "erp_company",
+  "erp_customer",
+  "erp_reference_doctype",
+  "erp_reference",
+  "column_11",
+  "extension_days",
+  "returned_on",
+  "completed_on",
+  "cancelled_on",
+  "cancel_reason",
+  "section_12",
+  "snapshot",
+  "idempotency_key"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_1",
+   "fieldtype": "Section Break",
+   "label": "Booking"
+  },
+  {
+   "fieldname": "tender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tender",
+   "options": "Marketplace Tender",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "offer",
+   "fieldtype": "Link",
+   "label": "Offer",
+   "options": "Supplier Offer",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "offer_revision",
+   "fieldtype": "Link",
+   "label": "Offer revision",
+   "options": "Offer Revision",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rental_request",
+   "fieldtype": "Link",
+   "label": "Rental request",
+   "options": "Rental Request",
+   "read_only": 1
+  },
+  {
+   "default": "Pending Payment",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Pending Payment\nConfirmed\nDispatched\nDelivered\nOn Hire\nOff-Hire Requested\nReturned\nMobilized\nActive\nDemobilized\nCompleted\nCancelled",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Marketplace Customer",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction type",
+   "options": "Hire\nSale\nContract",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "accepted_by",
+   "fieldtype": "Link",
+   "label": "Accepted by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "accepted_on",
+   "fieldtype": "Datetime",
+   "label": "Accepted on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_due_by",
+   "fieldtype": "Datetime",
+   "label": "Payment due by",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "Period & site"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "label": "Project name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "site_address",
+   "fieldtype": "Small Text",
+   "label": "Site address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "read_only": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_5",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Booking Item"
+  },
+  {
+   "fieldname": "section_6",
+   "fieldtype": "Section Break",
+   "label": "Amounts"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "subtotal",
+   "fieldtype": "Currency",
+   "label": "Subtotal",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "charges_total",
+   "fieldtype": "Currency",
+   "label": "Charges total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Grand total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security deposit",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "description": "Booking deposit due to confirm",
+   "fieldname": "deposit_required",
+   "fieldtype": "Currency",
+   "label": "Deposit required",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "label": "Amount paid",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount_refunded",
+   "fieldtype": "Currency",
+   "label": "Amount refunded",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balance_due",
+   "fieldtype": "Currency",
+   "label": "Balance due",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "additional_charges",
+   "fieldtype": "Currency",
+   "label": "Additional charges",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_8",
+   "fieldtype": "Section Break",
+   "label": "Commission"
+  },
+  {
+   "fieldname": "commission_rule",
+   "fieldtype": "Link",
+   "label": "Commission rule",
+   "options": "Commission Rule",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commission_basis",
+   "fieldtype": "Data",
+   "label": "Commission basis",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commission_rate",
+   "fieldtype": "Float",
+   "label": "Commission rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commission_amount",
+   "fieldtype": "Currency",
+   "label": "Commission amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_9",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "schedule",
+   "fieldtype": "Table",
+   "label": "Schedule",
+   "options": "Booking Schedule Line"
+  },
+  {
+   "fieldname": "section_10",
+   "fieldtype": "Section Break",
+   "label": "Fulfilment"
+  },
+  {
+   "fieldname": "vendor_order",
+   "fieldtype": "Link",
+   "label": "Vendor order",
+   "options": "Vendor Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "erp_company",
+   "fieldtype": "Link",
+   "label": "ERP company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "erp_customer",
+   "fieldtype": "Link",
+   "label": "ERP customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "erp_reference_doctype",
+   "fieldtype": "Link",
+   "label": "ERP reference doctype",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "erp_reference",
+   "fieldtype": "Dynamic Link",
+   "label": "ERP reference",
+   "options": "erp_reference_doctype",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "extension_days",
+   "fieldtype": "Int",
+   "label": "Extension days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "returned_on",
+   "fieldtype": "Date",
+   "label": "Returned on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Datetime",
+   "label": "Completed on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cancelled_on",
+   "fieldtype": "Datetime",
+   "label": "Cancelled on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cancel_reason",
+   "fieldtype": "Small Text",
+   "label": "Cancel reason",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_12",
+   "fieldtype": "Section Break",
+   "label": "Snapshot"
+  },
+  {
+   "fieldname": "snapshot",
+   "fieldtype": "JSON",
+   "label": "Snapshot",
+   "read_only": 1
+  },
+  {
+   "fieldname": "idempotency_key",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Idempotency key",
+   "no_copy": 1,
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Booking",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "search_fields": "customer,vendor",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

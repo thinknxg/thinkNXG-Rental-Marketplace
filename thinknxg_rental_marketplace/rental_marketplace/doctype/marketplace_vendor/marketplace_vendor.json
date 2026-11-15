@@ -1,0 +1,437 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "VND-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_1",
+  "business_name",
+  "business_type",
+  "status",
+  "verified",
+  "route",
+  "column_2",
+  "logo",
+  "website",
+  "description",
+  "section_3",
+  "address_line1",
+  "address_line2",
+  "city",
+  "column_4",
+  "state",
+  "country",
+  "pincode",
+  "section_5",
+  "contact_person",
+  "email",
+  "column_6",
+  "phone",
+  "section_7",
+  "registration_number",
+  "tax_id",
+  "column_8",
+  "years_in_business",
+  "section_9",
+  "categories",
+  "locations",
+  "section_10",
+  "bank_name",
+  "account_holder",
+  "column_11",
+  "iban",
+  "swift",
+  "section_12",
+  "erp_company",
+  "erp_supplier",
+  "column_13",
+  "owner_user",
+  "section_14",
+  "rating",
+  "review_count",
+  "offers_submitted",
+  "offers_won",
+  "column_15",
+  "submitted_on",
+  "approved_on",
+  "approved_by",
+  "status_reason",
+  "featured_until"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_1",
+   "fieldtype": "Section Break",
+   "label": "Business"
+  },
+  {
+   "bold": 1,
+   "fieldname": "business_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Business name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "business_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Business type",
+   "options": "Scaffolding Rental\nFormwork Rental\nEquipment Rental\nEquipment Owner\nIndustrial Supplier\nMaterial Dealer\nManufacturer / Distributor\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nDocuments Pending\nUnder Review\nApproved\nRejected\nSuspended\nDeactivated",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "verified",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Verified",
+   "read_only": 1
+  },
+  {
+   "description": "Public profile slug",
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "Registered address"
+  },
+  {
+   "fieldname": "address_line1",
+   "fieldtype": "Data",
+   "label": "Address line1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_line2",
+   "fieldtype": "Data",
+   "label": "Address line2"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Country",
+   "options": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldname": "section_5",
+   "fieldtype": "Section Break",
+   "label": "Contact"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact person",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_7",
+   "fieldtype": "Section Break",
+   "label": "Registration"
+  },
+  {
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "label": "Registration number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Tax / VAT Registration"
+  },
+  {
+   "fieldname": "column_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "years_in_business",
+   "fieldtype": "Int",
+   "label": "Years in business"
+  },
+  {
+   "fieldname": "section_9",
+   "fieldtype": "Section Break",
+   "label": "Coverage"
+  },
+  {
+   "fieldname": "categories",
+   "fieldtype": "Table MultiSelect",
+   "label": "Categories",
+   "options": "Vendor Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "locations",
+   "fieldtype": "Table",
+   "label": "Locations",
+   "options": "Vendor Location"
+  },
+  {
+   "fieldname": "section_10",
+   "fieldtype": "Section Break",
+   "label": "Settlement (restricted)"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank name",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "account_holder",
+   "fieldtype": "Data",
+   "label": "Account holder",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "iban",
+   "fieldtype": "Data",
+   "label": "IBAN / Account Number",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "swift",
+   "fieldtype": "Data",
+   "label": "SWIFT / IFSC",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "section_12",
+   "fieldtype": "Section Break",
+   "label": "ERP"
+  },
+  {
+   "description": "Set when this vendor fulfils through thinkNXG Rental / ERPNext on this site",
+   "fieldname": "erp_company",
+   "fieldtype": "Link",
+   "label": "ERP company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "erp_supplier",
+   "fieldtype": "Link",
+   "label": "ERP supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "column_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner user",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_14",
+   "fieldtype": "Section Break",
+   "label": "Performance"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Float",
+   "label": "Rating",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_count",
+   "fieldtype": "Int",
+   "label": "Review count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "offers_submitted",
+   "fieldtype": "Int",
+   "label": "Offers submitted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "offers_won",
+   "fieldtype": "Int",
+   "label": "Offers won",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "submitted_on",
+   "fieldtype": "Datetime",
+   "label": "Submitted on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status_reason",
+   "fieldtype": "Small Text",
+   "label": "Status reason"
+  },
+  {
+   "description": "Featured supplier until",
+   "fieldname": "featured_until",
+   "fieldtype": "Date",
+   "label": "Featured until"
+  }
+ ],
+ "image_field": "logo",
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Vendor",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "search_fields": "business_name,city,country",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "business_name",
+ "track_changes": 1
+}

@@ -1,0 +1,148 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "TIN-.######",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tender",
+  "vendor",
+  "status",
+  "source",
+  "column_1",
+  "match_score",
+  "match_reasons",
+  "invited_on",
+  "viewed_on",
+  "declined_reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "tender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tender",
+   "options": "Marketplace Tender",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Invited",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Invited\nViewed\nInterested\nDeclined\nOffer Submitted\nExcluded",
+   "search_index": 1
+  },
+  {
+   "default": "Auto",
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Source",
+   "options": "Auto\nManual\nAdmin Override\nOpen Tender"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "match_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Match score"
+  },
+  {
+   "fieldname": "match_reasons",
+   "fieldtype": "Small Text",
+   "label": "Match reasons"
+  },
+  {
+   "fieldname": "invited_on",
+   "fieldtype": "Datetime",
+   "label": "Invited on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "viewed_on",
+   "fieldtype": "Datetime",
+   "label": "Viewed on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "declined_reason",
+   "fieldtype": "Small Text",
+   "label": "Declined reason"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Tender Invitation",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

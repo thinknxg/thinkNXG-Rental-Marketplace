@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "event",
+  "reference_doctype",
+  "reference_name",
+  "actor",
+  "from_state",
+  "to_state",
+  "ip_address",
+  "data"
+ ],
+ "fields": [
+  {
+   "fieldname": "event",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Event",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reference doctype",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Reference name",
+   "options": "reference_doctype",
+   "search_index": 1
+  },
+  {
+   "fieldname": "actor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Actor",
+   "options": "User"
+  },
+  {
+   "fieldname": "from_state",
+   "fieldtype": "Data",
+   "label": "From state"
+  },
+  {
+   "fieldname": "to_state",
+   "fieldtype": "Data",
+   "label": "To state"
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "Ip address"
+  },
+  {
+   "fieldname": "data",
+   "fieldtype": "JSON",
+   "label": "Data"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Audit Event",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

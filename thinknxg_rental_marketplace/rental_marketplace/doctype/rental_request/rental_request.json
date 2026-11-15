@@ -1,0 +1,461 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "REQ-.YYYY.-.#####",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_1",
+  "title",
+  "transaction_type",
+  "category",
+  "status",
+  "column_2",
+  "customer",
+  "requested_by",
+  "submitted_on",
+  "tender",
+  "booking",
+  "section_3",
+  "items",
+  "section_4",
+  "required_from",
+  "required_to",
+  "duration_days",
+  "column_5",
+  "extension_possible",
+  "delivery_required",
+  "section_6",
+  "expected_delivery_date",
+  "delivery_terms",
+  "section_7",
+  "contract_start",
+  "contract_months",
+  "column_8",
+  "expected_monthly_qty",
+  "project_requirements",
+  "section_9",
+  "project_site",
+  "project_name",
+  "site_address",
+  "delivery_location",
+  "column_10",
+  "city",
+  "state",
+  "country",
+  "site_contact",
+  "site_phone",
+  "site_access",
+  "special_requirements",
+  "section_11",
+  "currency",
+  "budget_min",
+  "budget_max",
+  "payment_terms_pref",
+  "column_12",
+  "transport_required",
+  "technical_support",
+  "installation_required",
+  "other_conditions",
+  "section_13",
+  "attachments",
+  "idempotency_key",
+  "cancel_reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_1",
+   "fieldtype": "Section Break",
+   "label": "Requirement"
+  },
+  {
+   "bold": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction type",
+   "options": "Hire\nSale\nContract",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "Marketplace Category",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nTendered\nOffers Received\nAwarded\nBooked\nClosed\nCancelled",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Marketplace Customer",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Requested by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submitted_on",
+   "fieldtype": "Datetime",
+   "label": "Submitted on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tender",
+   "fieldtype": "Link",
+   "label": "Tender",
+   "options": "Marketplace Tender",
+   "read_only": 1
+  },
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "label": "Booking",
+   "options": "Marketplace Booking",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_3",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Rental Request Item",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.transaction_type=='Hire'",
+   "fieldname": "section_4",
+   "fieldtype": "Section Break",
+   "label": "Hire period"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type=='Hire'",
+   "fieldname": "required_from",
+   "fieldtype": "Date",
+   "label": "Required from"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type=='Hire'",
+   "fieldname": "required_to",
+   "fieldtype": "Date",
+   "label": "Required to"
+  },
+  {
+   "fieldname": "duration_days",
+   "fieldtype": "Int",
+   "label": "Duration days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "extension_possible",
+   "fieldtype": "Check",
+   "label": "Extension possible"
+  },
+  {
+   "default": "1",
+   "fieldname": "delivery_required",
+   "fieldtype": "Check",
+   "label": "Delivery required"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type=='Sale'",
+   "fieldname": "section_6",
+   "fieldtype": "Section Break",
+   "label": "Sale delivery"
+  },
+  {
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected delivery date"
+  },
+  {
+   "fieldname": "delivery_terms",
+   "fieldtype": "Select",
+   "label": "Delivery terms",
+   "options": "\nDelivered to site\nEx-works / pickup\nDelivered and installed"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type=='Contract'",
+   "fieldname": "section_7",
+   "fieldtype": "Section Break",
+   "label": "Contract"
+  },
+  {
+   "fieldname": "contract_start",
+   "fieldtype": "Date",
+   "label": "Contract start"
+  },
+  {
+   "fieldname": "contract_months",
+   "fieldtype": "Int",
+   "label": "Contract months"
+  },
+  {
+   "fieldname": "column_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_monthly_qty",
+   "fieldtype": "Float",
+   "label": "Expected monthly qty"
+  },
+  {
+   "fieldname": "project_requirements",
+   "fieldtype": "Small Text",
+   "label": "Project requirements"
+  },
+  {
+   "fieldname": "section_9",
+   "fieldtype": "Section Break",
+   "label": "Project & site"
+  },
+  {
+   "fieldname": "project_site",
+   "fieldtype": "Link",
+   "label": "Project site",
+   "options": "Customer Project Site"
+  },
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "label": "Project name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "site_address",
+   "fieldtype": "Small Text",
+   "label": "Site address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delivery_location",
+   "fieldtype": "Data",
+   "label": "Delivery location"
+  },
+  {
+   "fieldname": "column_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Country",
+   "options": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "site_contact",
+   "fieldtype": "Data",
+   "label": "Site contact"
+  },
+  {
+   "fieldname": "site_phone",
+   "fieldtype": "Data",
+   "label": "Site phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "site_access",
+   "fieldtype": "Small Text",
+   "label": "Site accessibility"
+  },
+  {
+   "fieldname": "special_requirements",
+   "fieldtype": "Small Text",
+   "label": "Special requirements"
+  },
+  {
+   "fieldname": "section_11",
+   "fieldtype": "Section Break",
+   "label": "Commercial preferences"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "budget_min",
+   "fieldtype": "Currency",
+   "label": "Budget min",
+   "options": "currency"
+  },
+  {
+   "fieldname": "budget_max",
+   "fieldtype": "Currency",
+   "label": "Budget max",
+   "options": "currency"
+  },
+  {
+   "fieldname": "payment_terms_pref",
+   "fieldtype": "Data",
+   "label": "Preferred payment terms"
+  },
+  {
+   "fieldname": "column_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "transport_required",
+   "fieldtype": "Check",
+   "label": "Transport required"
+  },
+  {
+   "fieldname": "technical_support",
+   "fieldtype": "Check",
+   "label": "Technical support"
+  },
+  {
+   "fieldname": "installation_required",
+   "fieldtype": "Check",
+   "label": "Installation required"
+  },
+  {
+   "fieldname": "other_conditions",
+   "fieldtype": "Small Text",
+   "label": "Other conditions"
+  },
+  {
+   "fieldname": "section_13",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Request Attachment"
+  },
+  {
+   "fieldname": "idempotency_key",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Idempotency key",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "cancel_reason",
+   "fieldtype": "Small Text",
+   "label": "Cancel reason",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Rental Request",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "search_fields": "title,city",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

@@ -1,0 +1,192 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:plan_code",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "plan_name",
+  "plan_code",
+  "enabled",
+  "sort_order",
+  "currency",
+  "price_monthly",
+  "price_yearly",
+  "trial_days",
+  "column_1",
+  "max_listings",
+  "max_tender_responses",
+  "max_staff_users",
+  "advanced_reports",
+  "api_access",
+  "priority_support",
+  "featured_listings",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "plan_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plan name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plan_code",
+   "fieldtype": "Data",
+   "label": "Plan code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "sort_order",
+   "fieldtype": "Int",
+   "label": "Sort order"
+  },
+  {
+   "default": "OMR",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "price_monthly",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Price monthly",
+   "options": "currency"
+  },
+  {
+   "fieldname": "price_yearly",
+   "fieldtype": "Currency",
+   "label": "Price yearly",
+   "options": "currency"
+  },
+  {
+   "default": "30",
+   "fieldname": "trial_days",
+   "fieldtype": "Int",
+   "label": "Trial days"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "10",
+   "description": "0 = unlimited",
+   "fieldname": "max_listings",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Max listings"
+  },
+  {
+   "default": "20",
+   "description": "Offers per calendar month, 0 = unlimited",
+   "fieldname": "max_tender_responses",
+   "fieldtype": "Int",
+   "label": "Max tender responses"
+  },
+  {
+   "default": "1",
+   "description": "0 = unlimited",
+   "fieldname": "max_staff_users",
+   "fieldtype": "Int",
+   "label": "Max staff users"
+  },
+  {
+   "fieldname": "advanced_reports",
+   "fieldtype": "Check",
+   "label": "Advanced reports"
+  },
+  {
+   "fieldname": "api_access",
+   "fieldtype": "Check",
+   "label": "Api access"
+  },
+  {
+   "fieldname": "priority_support",
+   "fieldtype": "Check",
+   "label": "Priority support"
+  },
+  {
+   "description": "Featured listings included",
+   "fieldname": "featured_listings",
+   "fieldtype": "Int",
+   "label": "Featured listings"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Subscription Plan",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "plan_name",
+ "track_changes": 1
+}

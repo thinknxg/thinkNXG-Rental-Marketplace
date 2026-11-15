@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "line_type",
+  "due_date",
+  "period_from",
+  "period_to",
+  "amount",
+  "status",
+  "payment"
+ ],
+ "fields": [
+  {
+   "fieldname": "line_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Line type",
+   "options": "Deposit\nAdvance\nBalance\nRental Period\nContract Period\nAdditional Charge\nFinal Settlement"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due date"
+  },
+  {
+   "fieldname": "period_from",
+   "fieldtype": "Date",
+   "label": "Period from"
+  },
+  {
+   "fieldname": "period_to",
+   "fieldtype": "Date",
+   "label": "Period to"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nRequested\nPaid\nWaived\nCancelled"
+  },
+  {
+   "fieldname": "payment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Payment",
+   "options": "Marketplace Payment"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Booking Schedule Line",
+ "naming_rule": "",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

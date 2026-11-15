@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "TCL-.######",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tender",
+  "offer",
+  "vendor",
+  "raised_by_party",
+  "clarification_type",
+  "status",
+  "column_1",
+  "raised_by",
+  "responded_by",
+  "responded_on",
+  "share_with_all",
+  "counter_amount",
+  "section_2",
+  "subject",
+  "message",
+  "response"
+ ],
+ "fields": [
+  {
+   "fieldname": "tender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tender",
+   "options": "Marketplace Tender",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "offer",
+   "fieldtype": "Link",
+   "label": "Offer",
+   "options": "Supplier Offer",
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "search_index": 1
+  },
+  {
+   "fieldname": "raised_by_party",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Raised by party",
+   "options": "Customer\nSupplier\nOperator",
+   "reqd": 1
+  },
+  {
+   "default": "Clarification",
+   "fieldname": "clarification_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Clarification type",
+   "options": "Clarification\nTechnical\nCommercial\nCounteroffer\nRevision Request",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nAnswered\nClosed"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "raised_by",
+   "fieldtype": "Link",
+   "label": "Raised by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "responded_by",
+   "fieldtype": "Link",
+   "label": "Responded by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "responded_on",
+   "fieldtype": "Datetime",
+   "label": "Responded on",
+   "read_only": 1
+  },
+  {
+   "description": "Answer shared anonymously with all invited suppliers",
+   "fieldname": "share_with_all",
+   "fieldtype": "Check",
+   "label": "Share with all"
+  },
+  {
+   "depends_on": "eval:doc.clarification_type=='Counteroffer'",
+   "fieldname": "counter_amount",
+   "fieldtype": "Currency",
+   "label": "Counter amount"
+  },
+  {
+   "fieldname": "section_2",
+   "fieldtype": "Section Break",
+   "label": "Message"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "reqd": 1
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Text",
+   "label": "Message",
+   "reqd": 1
+  },
+  {
+   "fieldname": "response",
+   "fieldtype": "Text",
+   "label": "Response"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Tender Clarification",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

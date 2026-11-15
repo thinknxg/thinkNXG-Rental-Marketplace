@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "COM-.YYYY.-.######",
+ "creation": "2026-11-15 10:00:00.000000",
+ "description": "",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "booking",
+  "vendor",
+  "status",
+  "commission_rule",
+  "column_1",
+  "currency",
+  "basis",
+  "rate",
+  "base_amount",
+  "commission_amount",
+  "settlement"
+ ],
+ "fields": [
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Booking",
+   "options": "Marketplace Booking",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Marketplace Vendor",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Accrued",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Accrued\nEarned\nSettled\nReversed"
+  },
+  {
+   "fieldname": "commission_rule",
+   "fieldtype": "Link",
+   "label": "Commission rule",
+   "options": "Commission Rule"
+  },
+  {
+   "fieldname": "column_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "basis",
+   "fieldtype": "Data",
+   "label": "Basis"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Float",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "base_amount",
+   "fieldtype": "Currency",
+   "label": "Base amount",
+   "options": "currency"
+  },
+  {
+   "fieldname": "commission_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Commission amount",
+   "options": "currency"
+  },
+  {
+   "fieldname": "settlement",
+   "fieldtype": "Link",
+   "label": "Settlement",
+   "options": "Marketplace Settlement",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Rental Marketplace",
+ "name": "Marketplace Commission",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Finance",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
