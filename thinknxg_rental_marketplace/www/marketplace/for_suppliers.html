@@ -1,0 +1,59 @@
+{% extends "templates/marketplace/base.html" %}
+{% from "templates/marketplace/macros.html" import money %}
+{% block content %}{% autoescape true %}
+<section class="hero" style="padding-bottom:70px"><div class="wrap" style="grid-template-columns:1fr">
+	<div><span class="eyebrow">For suppliers</span><h1>Qualified tenders, <span>matched to your fleet.</span></h1>
+	<p class="lead">Scaffolding and formwork rental companies, plant owners, dealers and manufacturers: receive invitations only for work you can actually serve — category, location and free stock for the dates.</p>
+	<div class="row"><a class="btn amber lg" href="#register">Register your business</a>{% if mp_vendor %}<a class="btn light lg" href="/marketplace/vendor">Open supplier portal</a>{% endif %}</div></div>
+</div></section>
+<div class="wrap section">
+	<div class="grid g3">
+		{% for t, d in [("Private workspace","Your fleet, offers, customers and finances are visible only to your team — never to other suppliers."),("Fair, sealed bidding","Competitors never see your prices. The platform prices every offer by the same rules so you compete on value."),("Bookings that hold","Accepted quantities are reserved against your availability; deposits are collected before you mobilise."),("Built-in fulfilment","Dispatch, on-hire, extensions, off-hire, returns, damage charges and settlement — in the portal or thinkNXG ERP."),("Get paid clearly","Commission and payouts are itemised per booking; payouts are recorded with a bank reference."),("Grow your profile","Verified badge, ratings from completed jobs and featured placements.")] %}
+		<div class="card"><h3>{{ t }}</h3><p class="muted">{{ d }}</p></div>{% endfor %}
+	</div>
+	<div class="section-head section"><div><span class="eyebrow">Plans</span><h2>Start with a free trial</h2><p>Every approved supplier starts on a trial. Limits are enforced by the platform, not hidden buttons.</p></div></div>
+	<div class="grid g3">{% for p in plans %}
+		<div class="card {{ 'kpi accent' if loop.index == 2 }}" style="padding:26px"><h3 style="{{ 'color:#fff' if loop.index == 2 }}">{{ p.plan_name }}</h3>
+			<div style="font:700 2.2rem var(--font-head);{{ 'color:#fff' if loop.index == 2 else 'color:var(--navy)' }}">{% if p.price_monthly %}{{ money(p.price_monthly, p.currency) }}<small style="font-size:.9rem"> / month</small>{% else %}Free{% endif %}</div>
+			<ul class="small" style="padding-left:18px;{{ 'color:#d9e2f0' if loop.index == 2 }}">
+				<li>{{ p.max_listings or "Unlimited" }} published listings</li><li>{{ p.max_tender_responses or "Unlimited" }} tender responses / month</li><li>{{ p.max_staff_users or "Unlimited" }} team users</li>
+				{% if p.advanced_reports %}<li>Advanced reporting</li>{% endif %}{% if p.featured_listings %}<li>{{ p.featured_listings }} featured listings</li>{% endif %}{% if p.api_access %}<li>API access</li>{% endif %}{% if p.priority_support %}<li>Priority support</li>{% endif %}<li>{{ p.trial_days }}-day trial</li></ul>
+		</div>{% endfor %}</div>
+
+	<div id="register" class="section"><div class="card" style="padding:30px">
+		{% if mp_vendor %}<h2>You're registered</h2><p>Your business is already on the marketplace.</p><a class="btn" href="/marketplace/vendor">Open supplier portal</a>
+		{% else %}
+		<span class="eyebrow">Supplier registration</span><h2>Register your business</h2><p class="muted">The marketplace team verifies your registration before you can bid. You can add documents, logo, locations and bank details in the portal.</p>
+		<form id="vreg" class="stack">
+			<div class="grid g3">
+				<label class="field"><span>Business name <em>*</em></span><input name="business_name" required></label>
+				<label class="field"><span>Business type <em>*</em></span><select name="business_type" required>{% for b in business_types %}<option>{{ b }}</option>{% endfor %}</select></label>
+				<label class="field"><span>Commercial registration no. <em>*</em></span><input name="registration_number" required></label>
+				<label class="field"><span>Tax / VAT registration</span><input name="tax_id"></label>
+				<label class="field"><span>Website</span><input name="website" placeholder="https://"></label>
+				<label class="field"><span>Contact person <em>*</em></span><input name="contact_person" required value="{{ mp_full_name or '' }}"></label>
+				<label class="field"><span>Email <em>*</em></span><input name="email" type="email" required value="{{ mp_user if mp_user != 'Guest' else '' }}" {{ "readonly" if mp_user != "Guest" }}></label>
+				<label class="field"><span>Phone <em>*</em></span><input name="phone" type="tel" required></label>
+				<label class="field"><span>Country <em>*</em></span><select name="country" required>{% for c in countries %}<option {{ "selected" if c == mp_settings.default_country }}>{{ c }}</option>{% endfor %}</select></label>
+				<label class="field"><span>State / governorate</span><input name="state"></label>
+				<label class="field"><span>City <em>*</em></span><input name="city" required></label>
+				<label class="field"><span>Registered address <em>*</em></span><input name="address_line1" required></label>
+			</div>
+			<label class="field"><span>Company description</span><textarea name="description" placeholder="Fleet, specialities, years in business"></textarea></label>
+			<div class="field"><span>Equipment categories <em>*</em></span><div class="row">{% for c in mp_categories if c.parent == "All Equipment" %}<label class="check badge" style="padding:8px 12px"><input type="checkbox" name="cat" value="{{ c.name }}"> {{ c.category_name }}</label>{% endfor %}</div>
+				<small class="muted">Choose groups now; refine to sub-categories in the portal.</small></div>
+			{% if mp_user == "Guest" %}<label class="check"><input type="checkbox" name="accept_terms"> I accept the <a href="/marketplace/terms" target="_blank">supplier terms</a></label>{% endif %}
+			<button class="btn amber lg">Submit registration</button>
+		</form>
+		{% endif %}
+	</div></div>
+</div>
+{% endautoescape %}{% endblock %}
+{% block scripts %}<script>
+(function () { const f = document.getElementById("vreg"); if (!f) return;
+	f.addEventListener("submit", async (e) => { e.preventDefault(); const d = MP.readForm(f); d.categories = MP.$$('input[name=cat]:checked', f).map((x) => x.value); delete d.cat;
+		if (!d.categories.length) return MP.toast("Choose at least one category", "err");
+		const r = await MP.safe(() => MP.call("public.register_vendor", { data: d }));
+		f.innerHTML = r.next === "/login" ? '<h3>Registration received</h3><p>Check your inbox for a link to set your password, then upload your verification documents in the supplier portal.</p>' : '<h3>Registration received</h3><a class="btn" href="/marketplace/vendor">Open supplier portal</a>'; });
+})();
+</script>{% endblock %}

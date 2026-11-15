@@ -1,0 +1,27 @@
+{% extends "templates/marketplace/base.html" %}
+{% from "templates/marketplace/macros.html" import listing_card %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap row" style="gap:22px">
+	<div class="avatar" style="width:88px;height:88px;font-size:2rem;{% if v.logo %}background-image:url('{{ v.logo }}'){% endif %}">{% if not v.logo %}{{ v.business_name[:1] }}{% endif %}</div>
+	<div><span class="eyebrow">{{ v.business_type }}</span><h1 style="margin:4px 0">{{ v.business_name }}</h1>
+		<div>{{ v.city }}, {{ v.country }}{% if v.verified %} · <span class="verified" style="color:#7ee2a8">✔ Verified supplier</span>{% endif %}{% if v.review_count %} · <span class="stars">{{ "★" * (v.rating|round|int) }}</span> {{ v.rating }} ({{ v.review_count }} reviews){% endif %}{% if v.years_in_business %} · {{ v.years_in_business }} years in business{% endif %}</div></div>
+	<a class="btn amber" style="margin-left:auto" href="/marketplace/post-requirement">Request offers</a>
+</div></section>
+<div class="wrap grid" style="grid-template-columns:2fr 1fr;gap:24px;margin-top:26px" id="sp">
+	<div class="stack">
+		{% if v.description %}<div class="card"><h3>About</h3><p>{{ v.description }}</p></div>{% endif %}
+		<h2>Equipment ({{ v.listings|length }})</h2>
+		{% if v.listings %}<div class="grid g2">{% for l in v.listings %}{{ listing_card(l)|safe }}{% endfor %}</div>{% else %}<div class="empty">No public listings — this supplier still responds to matching tenders.</div>{% endif %}
+		<h2>Reviews</h2>
+		{% for r in v.reviews %}<div class="card"><div class="row between"><b>{{ r.title or "Review" }}</b><span class="stars">{{ "★" * ((r.rating or 0) * 5)|round|int }}</span></div><p>{{ r.comment or "" }}</p><div class="small muted">{{ r.reviewer_display_name }} · {{ frappe.utils.format_date(r.creation) }}</div>{% if r.vendor_response %}<div class="card flat small" style="background:var(--steel-50);margin-top:8px"><b>Supplier response:</b> {{ r.vendor_response }}</div>{% endif %}</div>
+		{% else %}<div class="empty">No published reviews yet. Reviews come only from completed marketplace bookings.</div>{% endfor %}
+	</div>
+	<div class="stack">
+		<div class="card"><h4>Categories</h4><div class="row">{% for c in v.categories %}<span class="badge blue">{{ c }}</span>{% endfor %}</div></div>
+		<div class="card"><h4>Service locations</h4>{% for l in v.locations %}<div class="small">📍 {{ l.city }}{{ ", " ~ l.state if l.state }}, {{ l.country }} {% if l.delivery_radius_km %}<span class="muted">· {{ l.delivery_radius_km }} km</span>{% endif %}</div>{% endfor %}</div>
+		{% if v.website %}<div class="card"><h4>Website</h4><a href="{{ v.website }}" rel="nofollow noopener" target="_blank">{{ v.website }}</a></div>{% endif %}
+		<div class="card small muted">Contact details are shared once a booking is confirmed — all commercial discussion stays on the marketplace for your protection.</div>
+	</div>
+</div>
+{% endautoescape %}{% endblock %}
+{% block scripts %}<script>if (innerWidth < 900) document.getElementById("sp").style.gridTemplateColumns = "1fr";</script>{% endblock %}

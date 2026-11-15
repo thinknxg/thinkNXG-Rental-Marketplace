@@ -1,0 +1,10 @@
+{% extends "templates/marketplace/base.html" %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap"><span class="eyebrow">Legal</span><h1>{{ mp_title }}</h1></div></section>
+<div class="wrap section prose" style="padding-top:36px">
+{% if mp_settings.terms_content %}{{ mp_settings.terms_content|safe }}{% else %}
+	<p class="muted">The marketplace operator has not published this document yet. Edit it in <b>Marketplace Settings → Website</b>.</p>
+	{% if "terms" == "privacy" %}<p>Summary of how the platform handles data: customer identity and site details are disclosed to a supplier only at the tender's disclosure stage (by default, on award); offers are sealed between suppliers; private documents are downloadable only by the parties entitled to them; payment card data is handled by the payment provider and never stored on the marketplace.</p>{% endif %}
+{% endif %}
+</div>
+{% endautoescape %}{% endblock %}

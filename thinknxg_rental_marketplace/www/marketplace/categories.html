@@ -1,0 +1,16 @@
+{% extends "templates/marketplace/base.html" %}
+{% from "templates/marketplace/macros.html" import cat_icon %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap"><span class="eyebrow">Catalogue</span><h1>Equipment categories</h1><p>Choose a category to browse listings, or post a requirement directly from any of them.</p></div></section>
+<div class="wrap stack" style="margin-top:30px">
+{% for g in groups %}
+	<div class="card"><div class="row" style="margin-bottom:14px"><div class="cat-icon">{{ cat_icon(g.icon)|safe }}</div><div><h2 style="margin:0">{{ g.category_name }}</h2><span class="muted small">{{ g.description or "" }}</span></div>
+		<a class="btn ghost sm" style="margin-left:auto" href="/marketplace/categories/{{ g.route }}">View all</a></div>
+		<div class="grid g3">{% for c in g.children %}
+			<div class="card flat" style="padding:14px"><div class="row between"><a href="/marketplace/categories/{{ c.route }}"><b>{{ c.category_name }}</b></a><span class="badge">{{ c.listing_count }}</span></div>
+			<div class="row small" style="margin-top:8px">{% if c.allow_hire %}<span class="badge navy">Hire</span>{% endif %}{% if c.allow_sale %}<span class="badge amber">Sale</span>{% endif %}{% if c.allow_contract %}<span class="badge blue">Contract</span>{% endif %}
+			<a class="small" style="margin-left:auto" href="/marketplace/post-requirement?category={{ c.name|urlencode }}">Request offers →</a></div></div>
+		{% endfor %}</div></div>
+{% endfor %}
+</div>
+{% endautoescape %}{% endblock %}

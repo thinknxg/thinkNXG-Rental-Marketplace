@@ -1,0 +1,46 @@
+{% extends "templates/marketplace/base.html" %}
+{% from "templates/marketplace/macros.html" import listing_card, money %}
+{% block content %}{% autoescape true %}
+<div class="wrap" style="margin-top:26px">
+	<div class="small muted" style="margin-bottom:14px"><a href="/marketplace/equipment">Equipment</a>{% for c in l.category_path if c.name != "All Equipment" %} / <a href="/marketplace/categories/{{ c.route }}">{{ c.name }}</a>{% endfor %}</div>
+	<div class="grid" style="grid-template-columns:1.2fr .8fr;gap:28px" id="detail">
+		<div>
+			<div class="gallery-main" id="gmain" style="{% if images %}background-image:url('{{ images[0] }}'){% endif %}"></div>
+			{% if images|length > 1 %}<div class="thumbs">{% for i in images %}<button class="{{ 'on' if loop.first }}" style="background-image:url('{{ i }}')" data-img="{{ i }}"></button>{% endfor %}</div>{% endif %}
+			<div class="card" style="margin-top:20px"><h3>Description</h3><div class="prose">{{ (l.description|safe) if l.description else (l.short_description or "No description provided.") }}</div>
+				{% if l.specifications %}<h3 style="margin-top:18px">Technical specifications</h3><table class="spec">{% for s in l.specifications %}<tr><td>{{ s.attribute }}</td><td><b>{{ s.value }}</b> {{ s.unit or "" }}</td></tr>{% endfor %}</table>{% endif %}
+				{% if l.certifications %}<h3 style="margin-top:18px">Certifications</h3><p>{{ l.certifications }}</p>{% endif %}
+				{% if l.allow_sale and l.warranty %}<h3 style="margin-top:18px">Warranty</h3><p>{{ l.warranty }}</p>{% endif %}
+				{% if l.datasheet and not l.datasheet.startswith("/private/") %}<a class="btn ghost sm" href="{{ l.datasheet }}" target="_blank">Download datasheet</a>{% endif %}
+			</div>
+		</div>
+		<div class="stack">
+			<div class="card">
+				<span class="tiny muted">{{ l.category }}</span><h1 style="font-size:2.1rem">{{ l.title }}</h1>
+				<div class="row">{% if l.allow_hire %}<span class="badge navy">Hire</span>{% endif %}{% if l.allow_sale %}<span class="badge amber">Sale</span>{% endif %}{% if l.allow_contract %}<span class="badge blue">Contract</span>{% endif %}<span class="badge">{{ l.condition }}</span></div>
+				<table class="spec" style="margin-top:14px">
+					{% if l.allow_hire %}{% if l.daily_rate %}<tr><td>Daily rate</td><td><b>{{ money(l.daily_rate, l.currency) }}</b> / {{ l.uom }}</td></tr>{% endif %}
+					{% if l.weekly_rate %}<tr><td>Weekly rate</td><td><b>{{ money(l.weekly_rate, l.currency) }}</b> / {{ l.uom }}</td></tr>{% endif %}
+					{% if l.monthly_rate %}<tr><td>Monthly rate</td><td><b>{{ money(l.monthly_rate, l.currency) }}</b> / {{ l.uom }}</td></tr>{% endif %}
+					{% if l.security_deposit_rate %}<tr><td>Security deposit</td><td>{{ money(l.security_deposit_rate, l.currency) }} / {{ l.uom }}</td></tr>{% endif %}
+					<tr><td>Minimum hire</td><td>{{ l.min_hire_days or 1 }} day(s)</td></tr>{% endif %}
+					{% if l.allow_sale and l.sale_price %}<tr><td>Sale price</td><td><b>{{ money(l.sale_price, l.currency) }}</b> / {{ l.uom }}</td></tr><tr><td>Minimum order</td><td>{{ l.min_order_qty or 1 }} {{ l.uom }}</td></tr>{% endif %}
+					{% if l.allow_contract and l.contract_monthly_rate %}<tr><td>Contract rate</td><td><b>{{ money(l.contract_monthly_rate, l.currency) }}</b> / month</td></tr><tr><td>Minimum contract</td><td>{{ l.min_contract_months or 1 }} months</td></tr>{% endif %}
+					<tr><td>Available today</td><td><b>{{ l.available_today|int }}</b> of {{ l.total_qty|int }} {{ l.uom }}</td></tr>
+					{% if l.brand %}<tr><td>Brand / model</td><td>{{ l.brand }} {{ l.model or "" }}</td></tr>{% endif %}
+					<tr><td>Delivery</td><td>{{ "Available" if l.delivery_available else "Collection" }}{{ " · installation available" if l.installation_available }}</td></tr>
+				</table>
+				<a class="btn amber block lg" style="margin-top:16px" href="/marketplace/post-requirement?category={{ l.category|urlencode }}&listing={{ l.name }}&q={{ l.title|urlencode }}">Request offers for this</a>
+				<p class="tiny muted" style="margin:8px 0 0">Your requirement is tendered to this supplier and other matched suppliers. Prices above are indicative.</p>
+			</div>
+			<a class="card hover" href="/marketplace/suppliers/{{ l.vendor.route }}"><div class="scard"><div class="avatar" style="{% if l.vendor.logo %}background-image:url('{{ l.vendor.logo }}'){% endif %}">{% if not l.vendor.logo %}{{ l.vendor.business_name[:1] }}{% endif %}</div>
+				<div><b>{{ l.vendor.business_name }}</b><div class="small muted">{{ l.vendor.city }}, {{ l.vendor.country }}</div>{% if l.vendor.verified %}<span class="verified">✔ Verified supplier</span>{% endif %}</div></div></a>
+		</div>
+	</div>
+	{% if related %}<div class="section"><h2>Similar equipment</h2><div class="grid g4">{% for r in related %}{{ listing_card(r)|safe }}{% endfor %}</div></div>{% endif %}
+</div>
+{% endautoescape %}{% endblock %}
+{% block scripts %}<script>
+document.querySelectorAll(".thumbs button").forEach((b) => b.addEventListener("click", () => { document.getElementById("gmain").style.backgroundImage = `url('${b.dataset.img}')`; document.querySelectorAll(".thumbs button").forEach((x) => x.classList.toggle("on", x === b)); }));
+if (window.innerWidth < 900) document.getElementById("detail").style.gridTemplateColumns = "1fr";
+</script>{% endblock %}

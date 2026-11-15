@@ -1,0 +1,10 @@
+{% extends "templates/marketplace/base.html" %}
+{% block content %}{% autoescape true %}
+<section class="page-hero" style="padding:40px 0 34px"><div class="wrap"><span class="eyebrow">Post a requirement</span><h1>Tell us what the site needs</h1>
+	<p>One requirement goes to every matched, verified supplier. Takes about three minutes.</p></div></section>
+<div class="wrap" style="margin-top:26px"><div class="wizard" id="wizard"></div></div>
+{% endautoescape %}{% endblock %}
+{% block scripts %}
+<script>window.MP_BOOT = {{ boot }};</script>
+<script src="/assets/thinknxg_rental_marketplace/js/mp_wizard.js?v=1"></script>
+{% endblock %}

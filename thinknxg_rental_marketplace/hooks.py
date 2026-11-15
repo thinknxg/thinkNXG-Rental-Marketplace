@@ -22,9 +22,12 @@ before_uninstall = "thinknxg_rental_marketplace.services.setup.before_uninstall"
 
 # Public site + three single-page portals, all under /marketplace (the source app owns /rental and /hire)
 website_route_rules = [
-	{"from_route": "/marketplace/equipment/<path:slug>", "to_route": "marketplace/equipment-detail"},
-	{"from_route": "/marketplace/suppliers/<path:slug>", "to_route": "marketplace/supplier-profile"},
-	{"from_route": "/marketplace/categories/<path:slug>", "to_route": "marketplace/equipment"},
+	{"from_route": "/marketplace/equipment/<path:slug>", "to_route": "marketplace/equipment_detail"},
+	{"from_route": "/marketplace/suppliers/<path:slug>", "to_route": "marketplace/supplier_profile"},
+	{"from_route": "/marketplace/categories/<path:category>", "to_route": "marketplace/equipment"},
+	{"from_route": "/marketplace/how-it-works", "to_route": "marketplace/how_it_works"},
+	{"from_route": "/marketplace/post-requirement", "to_route": "marketplace/post_requirement"},
+	{"from_route": "/marketplace/for-suppliers", "to_route": "marketplace/for_suppliers"},
 	{"from_route": "/marketplace/account/<path:app_path>", "to_route": "marketplace/account"},
 	{"from_route": "/marketplace/vendor/<path:app_path>", "to_route": "marketplace/vendor"},
 	{"from_route": "/marketplace/operator/<path:app_path>", "to_route": "marketplace/operator"},

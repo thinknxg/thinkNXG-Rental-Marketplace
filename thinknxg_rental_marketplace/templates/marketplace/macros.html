@@ -1,0 +1,63 @@
+{% macro logo() -%}
+<span class="brand-mark"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 3v18M18 3v18M6 8h12M6 14h12M6 8l12 6"/></svg></span>
+{%- endmacro %}
+
+{% macro money(v, cur) -%}
+{%- if v -%}{{ cur }} {{ "{:,.3f}".format(v) if cur in ("OMR","KWD","BHD","JOD") else "{:,.2f}".format(v) }}{%- else -%}—{%- endif -%}
+{%- endmacro %}
+
+{% macro listing_card(l) -%}
+<a class="card pad0 hover lcard" href="/marketplace/equipment/{{ (l.route or l.name)|e }}">
+	<div class="ph" style="{% if l.cover_image %}background-image:url('{{ l.cover_image|e }}'){% endif %}">
+		{% if not l.cover_image %}<div class="ph-fallback"><svg viewBox="0 0 120 90" width="120" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 85V10M100 85V10M20 25h80M20 50h80M20 75h80M20 25l80 25M100 50L20 75"/></svg></div>{% endif %}
+		<div class="tags">{% if l.allow_hire %}<span class="badge navy">Hire</span>{% endif %}{% if l.allow_sale %}<span class="badge amber">Sale</span>{% endif %}{% if l.allow_contract %}<span class="badge blue">Contract</span>{% endif %}{% if l.featured %}<span class="badge green">Featured</span>{% endif %}</div>
+	</div>
+	<div class="body">
+		<span class="tiny muted">{{ l.category|e }}</span>
+		<span class="title">{{ l.title|e }}</span>
+		<span class="small muted">{{ l.vendor_name|e }}{% if l.vendor_verified %} · <span class="verified">✔ Verified</span>{% endif %}{% if l.vendor_city %} · {{ l.vendor_city|e }}{% endif %}</span>
+		<span class="price">
+			{% if l.allow_hire and l.monthly_rate %}{{ money(l.monthly_rate, l.currency) }} <small>/ {{ l.uom|e }} / month</small>
+			{% elif l.allow_hire and l.daily_rate %}{{ money(l.daily_rate, l.currency) }} <small>/ {{ l.uom|e }} / day</small>
+			{% elif l.allow_sale and l.sale_price %}{{ money(l.sale_price, l.currency) }} <small>/ {{ l.uom|e }}</small>
+			{% elif l.contract_monthly_rate %}{{ money(l.contract_monthly_rate, l.currency) }} <small>/ month (contract)</small>
+			{% else %}<small>Price on tender</small>{% endif %}
+		</span>
+	</div>
+</a>
+{%- endmacro %}
+
+{% macro supplier_card(v) -%}
+<a class="card hover" href="/marketplace/suppliers/{{ v.route|e }}">
+	<div class="scard">
+		<div class="avatar" style="{% if v.logo %}background-image:url('{{ v.logo|e }}'){% endif %}">{% if not v.logo %}{{ (v.business_name or '?')[:1]|e }}{% endif %}</div>
+		<div><b style="color:var(--navy)">{{ v.business_name|e }}</b><div class="small muted">{{ v.business_type|e }} · {{ v.city|e }}, {{ v.country|e }}</div>
+			<div class="small">{% if v.verified %}<span class="verified">✔ Verified</span>{% endif %}
+			{% if v.review_count %}<span class="stars">{{ "★" * (v.rating|round|int) }}</span> <span class="muted">{{ v.rating|e }} ({{ v.review_count }})</span>{% endif %}</div></div>
+	</div>
+	{% if v.listing_count is defined %}<div class="small muted" style="margin-top:10px">{{ v.listing_count }} listings · {{ (v.categories or [])[:3]|join(", ")|e }}</div>{% endif %}
+</a>
+{%- endmacro %}
+
+{% macro cat_icon(icon) -%}
+{%- set paths = {"scaffold": "M5 3v18M19 3v18M5 7h14M5 12h14M5 17h14M5 7l14 5M19 12L5 17", "formwork": "M3 5h18v4H3zM5 9v10M19 9v10M9 9v10M15 9v10M3 19h18", "excavator": "M3 18h11M4 18v-3h9v3M7 15V11h4l2 4M13 11l4-6 4 3-3 2M18 10l1 4h-3", "clamp": "M7 4h10v5H7zM9 9v11M15 9v11M5 20h14"} -%}
+<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#1d5fd6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ paths.get(icon, paths['scaffold']) }}"/></svg>
+{%- endmacro %}
+
+{% macro hero_art() -%}
+<svg viewBox="0 0 520 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scaffolding tower and tower crane illustration">
+	<defs><linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3b7bf0"/><stop offset="1" stop-color="#1d5fd6"/></linearGradient></defs>
+	<rect x="40" y="380" width="440" height="10" rx="5" fill="#1a3f73"/>
+	<g stroke="#c9d6ea" stroke-width="5" stroke-linecap="round">
+		<path d="M90 380V110M190 380V110M290 380V160"/><path d="M90 110h100M90 180h200M90 250h200M90 320h200M190 160h100"/>
+		<path d="M90 180l100 70M190 180L90 250M190 250l100 70M290 250L190 320" stroke="#7f9cc6" stroke-width="3"/>
+	</g>
+	<g fill="#f5a623"><rect x="84" y="174" width="212" height="10" rx="3"/><rect x="84" y="314" width="212" height="10" rx="3"/></g>
+	<g stroke="#f5a623" stroke-width="6" stroke-linecap="round"><path d="M400 380V60M400 60h-180M400 60h70M400 60l-60 40M400 60l60 24"/></g>
+	<path d="M300 60v90" stroke="#c9d6ea" stroke-width="2"/><rect x="284" y="150" width="32" height="26" rx="3" fill="url(#g1)"/>
+	<rect x="378" y="84" width="44" height="34" rx="4" fill="#12305a" stroke="#f5a623" stroke-width="3"/>
+	<g fill="#12305a" stroke="#3b7bf0" stroke-width="2"><rect x="330" y="300" width="120" height="80" rx="6"/></g>
+	<g fill="#3b7bf0" opacity=".6"><rect x="342" y="314" width="22" height="18" rx="2"/><rect x="372" y="314" width="22" height="18" rx="2"/><rect x="402" y="314" width="22" height="18" rx="2"/></g>
+</svg>
+{%- endmacro %}
+

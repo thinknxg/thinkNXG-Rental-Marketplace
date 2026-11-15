@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token }}">
+	<title>{{ title|e }}</title>
+	<meta name="description" content="{{ (meta_description or '')|e }}">
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/thinknxg_rental_marketplace/css/mp.css?v=1">
+	<link rel="icon" href="/assets/thinknxg_rental_marketplace/images/logo.svg">
+	{% block head %}{% endblock %}
+</head>
+{% autoescape true %}<body class="mp {% block body_class %}{% endblock %}" data-currency="{{ mp_settings.default_currency }}">
+{% block shell %}{% from "templates/marketplace/macros.html" import logo %}
+<div class="topbar"><div class="wrap">
+	<span>Verified suppliers · Hire · Sale · Long-term contracts</span>
+	<span>{% if mp_settings.support_email %}<a href="mailto:{{ mp_settings.support_email }}">{{ mp_settings.support_email }}</a>{% endif %}</span>
+</div></div>
+<header class="nav"><div class="wrap">
+	<a class="brand" href="/marketplace">{{ logo()|safe }}<span>thinkNXG<small>Rental Marketplace</small></span></a>
+	<nav class="nav-links">
+		{% for key, href, label in mp_nav %}<a href="{{ href }}" class="{{ 'on' if mp_active == key else '' }}">{{ label }}</a>{% endfor %}
+	</nav>
+	<div class="nav-cta">
+		{% if mp_user == "Guest" %}
+			<a class="btn ghost sm" href="/login?redirect-to=/marketplace/account">Sign in</a>
+		{% else %}
+			{% if mp_vendor %}<a class="btn ghost sm" href="/marketplace/vendor">Supplier portal</a>{% endif %}
+			{% if mp_customer %}<a class="btn ghost sm" href="/marketplace/account">My workspace</a>{% endif %}
+			{% if mp_operator %}<a class="btn ghost sm" href="/marketplace/operator">Operator</a>{% endif %}
+		{% endif %}
+		<a class="btn amber sm" href="/marketplace/post-requirement">Post Your Requirement</a>
+	</div>
+	<button class="burger" aria-label="Menu">☰</button>
+</div></header>
+<main>{% block content %}{% endblock %}</main>
+<footer class="footer"><div class="wrap">
+	<div class="grid g4">
+		<div><a class="brand" href="/marketplace" style="color:#fff !important">{{ logo()|safe }}<span>thinkNXG<small>Rental Marketplace</small></span></a>
+			<p class="small" style="margin-top:14px">One requirement, multiple verified offers. Scaffolding, formwork and construction equipment — hire, sale and contract.</p></div>
+		<div><h4>Marketplace</h4><a href="/marketplace/equipment">Browse equipment</a><a href="/marketplace/categories">Categories</a><a href="/marketplace/suppliers">Supplier directory</a><a href="/marketplace/post-requirement">Post a requirement</a></div>
+		<div><h4>Suppliers</h4><a href="/marketplace/for-suppliers">Why list with us</a><a href="/marketplace/for-suppliers#register">Register your business</a><a href="/marketplace/vendor">Supplier portal</a><a href="/marketplace/how-it-works">How tenders work</a></div>
+		<div><h4>Company</h4><a href="/marketplace/about">About thinkNXG</a><a href="/marketplace/contact">Contact</a><a href="/marketplace/terms">Terms</a><a href="/marketplace/privacy">Privacy policy</a></div>
+	</div>
+	<div class="legal"><span>© {{ frappe.utils.nowdate()[:4] }} thinkNXG · Powered by thinkNXG ERP</span><span>Built on thinkNXG Framework</span></div>
+</div></footer>
+{% endblock %}{% endautoescape %}
+<script src="/assets/thinknxg_rental_marketplace/js/mp_core.js?v=1"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

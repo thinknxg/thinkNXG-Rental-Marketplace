@@ -70,6 +70,9 @@ def register_vendor(data):
 
 def register_customer(data):
 	name = (data.get("company_name") if data.get("customer_type") == "Company" else data.get("full_name")) or data.get("full_name")
+	if frappe.session.user != "Guest":
+		name = name or frappe.db.get_value("User", frappe.session.user, "full_name")
+		data["email"] = data.get("email") or frappe.session.user
 	if not (name and data.get("email")):
 		fail("FIELDS_REQUIRED", "Name and email are required.")
 	user = _current_or_new_user(data, "Marketplace Customer")

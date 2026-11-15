@@ -1,0 +1,20 @@
+{% extends "templates/marketplace/base.html" %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap"><span class="eyebrow">How it works</span><h1>A tender process built for equipment</h1><p>Rental Request → Tender → Matched suppliers → Sealed offers → Comparison → Booking → Fulfilment → Settlement → Review.</p></div></section>
+<div class="wrap section" style="padding-top:36px">
+	<div class="grid g2">
+	{% for n, t, d in [
+		("01","Post a requirement","Choose Hire, Sale or Contract, describe the equipment, quantities and dates, add the site and attach BOQs or drawings. Budget is optional and never shown to suppliers unless you choose."),
+		("02","A tender is created","Your request becomes a marketplace tender with a submission deadline, type (open, invited, restricted, private, negotiated or reverse auction) and visibility rules set by the marketplace."),
+		("03","Suppliers are matched","Only approved suppliers with an active plan, the right category, coverage in your country and free stock for your dates are invited. Category alone is never treated as availability."),
+		("04","Sealed competitive offers","Suppliers price every line; the platform calculates totals with the same rules for everyone. Suppliers never see competitors' prices or identities. Revisions are kept as history."),
+		("05","Clarify and compare","Ask questions, request revisions or counter-offer. When bidding closes, compare price, delivery, compliance, deposits and supplier rating side by side, or use weighted scoring."),
+		("06","Accept and book","Accepting validates the offer and locks the supplier's quantity for your dates. A deposit confirms the booking; your contact details are then shared with the winning supplier."),
+		("07","Fulfil","Track dispatch, delivery, on-hire, extensions, off-hire and returns. ERP-connected suppliers run it through thinkNXG ERP hire orders and contracts."),
+		("08","Settle and review","Balance and any damage charges are settled on the platform, the supplier is paid out against a confirmed payout reference, and you rate the job.")] %}
+		<div class="card"><span class="eyebrow">{{ n }}</span><h3 style="margin-top:8px">{{ t }}</h3><p class="muted">{{ d }}</p></div>
+	{% endfor %}
+	</div>
+	<div class="band" style="margin-top:30px"><h2>Ready when you are</h2><p>It takes about three minutes to post a requirement.</p><a class="btn amber" href="/marketplace/post-requirement">Post Your Requirement</a></div>
+</div>
+{% endautoescape %}{% endblock %}

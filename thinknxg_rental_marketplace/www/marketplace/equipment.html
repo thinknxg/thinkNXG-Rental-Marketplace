@@ -1,0 +1,30 @@
+{% extends "templates/marketplace/base.html" %}
+{% from "templates/marketplace/macros.html" import listing_card %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap">
+	<span class="eyebrow">{% if cat %}Category{% else %}Marketplace catalogue{% endif %}</span>
+	<h1>{{ mp_title }}</h1>
+	<p>{{ (cat.description if cat else "") or "Listings from verified suppliers. Prices are indicative — post a requirement to receive firm, comparable offers." }}</p>
+	{% if children %}<div class="row" style="margin-top:14px">{% for c in children %}<a class="badge" style="background:rgba(255,255,255,.12);color:#fff" href="/marketplace/categories/{{ c.route }}">{{ c.category_name }} ({{ c.listing_count }})</a>{% endfor %}</div>{% endif %}
+</div></section>
+<div class="wrap layout-2" style="margin-top:28px">
+	<aside><form class="card filters stack" method="get">
+		<label class="field"><span>Search</span><input type="search" name="q" value="{{ q }}" placeholder="Equipment, brand, supplier"></label>
+		<label class="field"><span>Offering</span><select name="mode"><option value="">Hire, sale or contract</option>
+			{% for m in ["hire","sale","contract"] %}<option value="{{ m }}" {{ "selected" if mode == m }}>{{ m|capitalize }}</option>{% endfor %}</select></label>
+		{% if not cat %}<label class="field"><span>Category</span><select name="category"><option value="">All</option>
+			{% for c in mp_categories if c.name != "All Equipment" %}<option value="{{ c.route }}">{{ "— " if c.parent != "All Equipment" }}{{ c.category_name }}</option>{% endfor %}</select></label>{% endif %}
+		<label class="field"><span>Country</span><select name="country"><option value="">Any</option>{% for c in countries %}<option {{ "selected" if country == c }}>{{ c }}</option>{% endfor %}</select></label>
+		<label class="field"><span>City</span><input name="city" value="{{ city }}" placeholder="e.g. Muscat"></label>
+		<label class="field"><span>Sort</span><select name="sort"><option value="">Recommended</option><option value="price" {{ "selected" if sort=="price" }}>Lowest price</option><option value="rating" {{ "selected" if sort=="rating" }}>Supplier rating</option><option value="newest" {{ "selected" if sort=="newest" }}>Newest</option></select></label>
+		<button class="btn block">Apply filters</button>
+		<a class="btn amber block" href="/marketplace/post-requirement{% if cat %}?category={{ cat.name|urlencode }}{% endif %}">Get offers instead</a>
+	</form></aside>
+	<div>
+		<div class="row between" style="margin-bottom:14px"><span class="muted">{{ total }} listing{{ "s" if total != 1 }}</span></div>
+		{% if rows %}<div class="grid g3">{% for l in rows %}{{ listing_card(l)|safe }}{% endfor %}</div>
+		{% else %}<div class="empty"><h3>No listings match yet</h3><p>Post your requirement — suppliers without public listings still receive matching tenders.</p><a class="btn amber" href="/marketplace/post-requirement">Post Your Requirement</a></div>{% endif %}
+		{% if pages > 1 %}<div class="pager">{% for p in range(1, pages + 1) %}<a class="btn sm {{ '' if p == page else 'ghost' }}" href="?page={{ p }}&q={{ q|urlencode }}&mode={{ mode }}&country={{ country|urlencode }}&city={{ city|urlencode }}&sort={{ sort }}">{{ p }}</a>{% endfor %}</div>{% endif %}
+	</div>
+</div>
+{% endautoescape %}{% endblock %}

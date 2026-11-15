@@ -1,0 +1,19 @@
+{% extends "templates/marketplace/base.html" %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap"><span class="eyebrow">Contact</span><h1>Talk to the marketplace team</h1><p>Onboarding, support, partnerships — we reply within one business day.</p></div></section>
+<div class="wrap grid g2 section" style="padding-top:30px">
+	<form class="card stack" id="enq">
+		<div class="grid g2"><label class="field"><span>Full name <em>*</em></span><input name="full_name" required></label><label class="field"><span>Email <em>*</em></span><input name="email" type="email" required></label>
+		<label class="field"><span>Phone</span><input name="phone" type="tel"></label><label class="field"><span>Company</span><input name="company"></label></div>
+		<label class="field"><span>Topic</span><select name="enquiry_type"><option>General</option><option>Supplier Onboarding</option><option>Customer Support</option><option>Partnership</option><option>Press</option></select></label>
+		<label class="field"><span>Message <em>*</em></span><textarea name="message" required></textarea></label>
+		<button class="btn amber">Send message</button>
+	</form>
+	<div class="stack"><div class="card"><h3>Support</h3><p><a href="mailto:{{ mp_settings.support_email }}">{{ mp_settings.support_email }}</a>{% if mp_settings.support_phone %}<br>{{ mp_settings.support_phone }}{% endif %}</p></div>
+	<div class="card"><h3>Sales & enterprise plans</h3><p><a href="mailto:{{ mp_settings.sales_email }}">{{ mp_settings.sales_email }}</a></p></div></div>
+</div>
+{% endautoescape %}{% endblock %}
+{% block scripts %}<script>
+document.getElementById("enq").addEventListener("submit", async (e) => { e.preventDefault(); const f = e.target;
+	await MP.safe(() => MP.call("public.enquiry", { data: MP.readForm(f) }), "Thanks — we will be in touch."); f.reset(); });
+</script>{% endblock %}

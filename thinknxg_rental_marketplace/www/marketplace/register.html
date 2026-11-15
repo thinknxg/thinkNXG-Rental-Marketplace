@@ -1,0 +1,33 @@
+{% extends "templates/marketplace/base.html" %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap"><span class="eyebrow">Customers</span><h1>Create a customer account</h1><p>Free for buyers. Post requirements, compare offers and manage bookings in one workspace.</p></div></section>
+<div class="wrap section" style="padding-top:30px;max-width:760px">
+	{% if mp_customer %}<div class="card"><h3>You already have a customer workspace.</h3><a class="btn" href="/marketplace/account">Open my workspace</a></div>
+	{% else %}
+	<form class="card stack" id="reg">
+		<div class="modes"><button type="button" class="on" data-t="Company">Company</button><button type="button" data-t="Individual">Individual</button></div>
+		<input type="hidden" name="customer_type" value="Company">
+		<div class="grid g2">
+			<label class="field" id="co"><span>Company name <em>*</em></span><input name="company_name"></label>
+			<label class="field"><span>Industry</span><select name="industry"><option></option>{% for i in ["Construction Company","Civil Contractor","Builder","Infrastructure Developer","Government Contractor","Procurement Team","Industrial Company","Individual"] %}<option>{{ i }}</option>{% endfor %}</select></label>
+			<label class="field"><span>Your name <em>*</em></span><input name="full_name" required value="{{ mp_full_name or '' }}"></label>
+			<label class="field"><span>Email <em>*</em></span><input name="email" type="email" required value="{{ mp_user if mp_user != 'Guest' else '' }}" {{ "readonly" if mp_user != "Guest" }}></label>
+			<label class="field"><span>Phone</span><input name="phone" type="tel"></label>
+			<label class="field"><span>Tax / VAT number</span><input name="tax_id"></label>
+			<label class="field"><span>Country</span><input name="country" value="{{ mp_settings.default_country or '' }}"></label>
+			<label class="field"><span>City</span><input name="city"></label>
+		</div>
+		{% if mp_user == "Guest" %}<label class="check"><input type="checkbox" name="accept_terms"> I accept the <a href="/marketplace/terms" target="_blank">terms</a> and <a href="/marketplace/privacy" target="_blank">privacy policy</a></label>{% endif %}
+		<button class="btn amber lg">Create account</button>
+		{% if mp_user == "Guest" %}<p class="small muted">We email you a link to set your password. Already registered? <a href="/login?redirect-to=/marketplace/account">Sign in</a></p>{% endif %}
+	</form>
+	{% endif %}
+</div>
+{% endautoescape %}{% endblock %}
+{% block scripts %}<script>
+(function () { const f = document.getElementById("reg"); if (!f) return;
+	f.querySelectorAll(".modes button").forEach((b) => b.onclick = () => { f.querySelectorAll(".modes button").forEach((x) => x.classList.toggle("on", x === b)); f.customer_type.value = b.dataset.t; document.getElementById("co").style.display = b.dataset.t === "Company" ? "" : "none"; });
+	f.addEventListener("submit", async (e) => { e.preventDefault(); const r = await MP.safe(() => MP.call("public.register_customer", { data: MP.readForm(f) }));
+		f.innerHTML = r.next === "/login" ? '<h3>Check your inbox</h3><p>We sent you a link to set your password. Then sign in to post your first requirement.</p>' : '<h3>Account ready</h3><a class="btn" href="/marketplace/account">Open my workspace</a>'; });
+})();
+</script>{% endblock %}

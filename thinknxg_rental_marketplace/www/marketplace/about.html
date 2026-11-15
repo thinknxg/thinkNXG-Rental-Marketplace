@@ -1,0 +1,11 @@
+{% extends "templates/marketplace/base.html" %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap"><span class="eyebrow">About</span><h1>About thinkNXG</h1><p>Enterprise software for the construction supply chain, built on thinkNXG ERP.</p></div></section>
+<div class="wrap section prose" style="padding-top:36px">
+	<p>thinkNXG builds business software for rental, construction and project industries across Oman and the GCC. The thinkNXG Rental Marketplace connects contractors and procurement teams with verified scaffolding, formwork and construction equipment suppliers through a transparent, request-driven tender process.</p>
+	<p>Suppliers that run thinkNXG Rental manage marketplace bookings in the same hire orders, contracts, reservations, deliveries, off-hire and billing they already use. Everyone else gets a complete supplier workspace in the browser.</p>
+	<h3>Our principles</h3>
+	<ul><li>Sealed, comparable offers — no hidden price discovery between competitors.</li><li>Verified suppliers only, reviewed by people.</li><li>Every decision auditable: revisions, clarifications, awards and payments.</li><li>Your data stays yours — suppliers see your details only after award.</li></ul>
+	<p>Sales: <a href="mailto:{{ mp_settings.sales_email }}">{{ mp_settings.sales_email }}</a> · Support: <a href="mailto:{{ mp_settings.support_email }}">{{ mp_settings.support_email }}</a></p>
+</div>
+{% endautoescape %}{% endblock %}

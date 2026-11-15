@@ -1,0 +1,130 @@
+{% extends "templates/marketplace/base.html" %}
+{% from "templates/marketplace/macros.html" import listing_card, supplier_card, cat_icon, hero_art %}
+{% block content %}{% autoescape true %}
+<section class="hero {% if mp_settings.hero_image %}has-image{% endif %}" {% if mp_settings.hero_image %}style="background-image:linear-gradient(160deg,rgba(11,31,58,.92),rgba(16,47,94,.78)),url('{{ mp_settings.hero_image }}')"{% endif %}>
+	<div class="wrap">
+		<div>
+			<span class="eyebrow">Construction equipment procurement</span>
+			<h1>One Requirement.<br>Multiple Offers.<br><span>Smarter Equipment Sourcing.</span></h1>
+			<p class="lead">{{ mp_settings.hero_subtitle }}</p>
+			<div class="row"><a class="btn amber lg" href="/marketplace/post-requirement">Post Your Requirement</a><a class="btn light lg" href="/marketplace/equipment">Explore Equipment</a></div>
+			<div class="hero-stats">
+				<div><b>{{ stats.suppliers }}</b><span>Verified suppliers</span></div>
+				<div><b>{{ stats.listings }}</b><span>Equipment listings</span></div>
+				<div><b>{{ stats.tenders }}</b><span>Tenders run</span></div>
+				<div><b>{{ stats.offers }}</b><span>Competitive offers</span></div>
+			</div>
+		</div>
+		<div class="hero-art">{{ hero_art()|safe }}</div>
+	</div>
+</section>
+
+<div class="wrap searchbox">
+	<form class="card" action="/marketplace/post-requirement" method="get" id="hero-search">
+		<div class="modes" role="tablist">
+			<button type="button" class="on" data-mode="Hire">Hire</button><button type="button" data-mode="Sale">Buy</button><button type="button" data-mode="Contract">Contract</button>
+		</div>
+		<input type="hidden" name="type" value="Hire">
+		<div class="search-row">
+			<input type="search" name="q" placeholder="What do you need? e.g. 800 cuplock standards, slab formwork, 50T crane">
+			<select name="category"><option value="">All categories</option>
+				{% for g in groups %}<optgroup label="{{ g.category_name }}">{% for c in g.children %}<option value="{{ c.name }}">{{ c.category_name }}</option>{% endfor %}</optgroup>{% endfor %}
+			</select>
+			<input type="text" name="city" placeholder="Project city">
+			<button class="btn amber" type="submit">Get offers →</button>
+		</div>
+		<p class="small muted" style="margin:10px 2px 0">Describe it once — matched suppliers compete with sealed offers. Or <a href="/marketplace/equipment" id="browse-link">browse listings</a>.</p>
+	</form>
+</div>
+
+<section class="section"><div class="wrap">
+	<div class="section-head"><div><span class="eyebrow">Equipment categories</span><h2>Everything a site needs</h2><p>Formwork, scaffolding, plant and accessories from verified rental companies, dealers and manufacturers.</p></div>
+		<a class="btn ghost" href="/marketplace/categories">All categories</a></div>
+	<div class="grid g4">
+	{% for g in groups %}
+		<div class="card hover cat-card">
+			<div class="cat-icon">{{ cat_icon(g.icon)|safe }}</div>
+			<div><a href="/marketplace/categories/{{ g.route }}"><h3>{{ g.category_name }}</h3></a>
+				<ul>{% for c in g.children[:6] %}<li><a href="/marketplace/categories/{{ c.route }}">{{ c.category_name }}</a></li>{% endfor %}</ul></div>
+		</div>
+	{% endfor %}
+	</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+	<div class="section-head"><div><span class="eyebrow">How tender bidding works</span><h2>From requirement to delivery in five steps</h2></div><a class="btn ghost" href="/marketplace/how-it-works">Learn more</a></div>
+	<div class="grid g4 steps" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+		<div class="step"><h3>Post one requirement</h3><p class="muted">Hire, buy or contract. Quantities, dates, site, BOQ — budget optional.</p></div>
+		<div class="step"><h3>We match suppliers</h3><p class="muted">Verified suppliers with the category, coverage and <b>free stock for your dates</b> are invited.</p></div>
+		<div class="step"><h3>Sealed competitive offers</h3><p class="muted">Suppliers never see each other's prices. Offers open when bidding closes.</p></div>
+		<div class="step"><h3>Compare & choose</h3><p class="muted">Price, delivery, compliance and rating side by side — the cheapest is never picked for you.</p></div>
+		<div class="step"><h3>Book, pay, fulfil</h3><p class="muted">Deposit secures reserved stock. Track delivery, off-hire and final settlement.</p></div>
+	</div>
+</div></section>
+
+{% if featured %}
+<section class="section"><div class="wrap">
+	<div class="section-head"><div><span class="eyebrow">Featured equipment</span><h2>Available on the marketplace</h2></div><a class="btn ghost" href="/marketplace/equipment">Browse all</a></div>
+	<div class="grid g4">{% for l in featured %}{{ listing_card(l)|safe }}{% endfor %}</div>
+</div></section>
+{% endif %}
+
+{% if suppliers %}
+<section class="section"><div class="wrap">
+	<div class="section-head"><div><span class="eyebrow">Verified suppliers</span><h2>Businesses you can trust</h2><p>Every supplier's registration and documents are checked by the marketplace team before they can bid.</p></div><a class="btn ghost" href="/marketplace/suppliers">Supplier directory</a></div>
+	<div class="grid g3">{% for v in suppliers %}{{ supplier_card(v)|safe }}{% endfor %}</div>
+</div></section>
+{% endif %}
+
+{% if tenders %}
+<section class="section"><div class="wrap">
+	<div class="section-head"><div><span class="eyebrow">Open public tenders</span><h2>Live requirements</h2><p>Customer details stay private until award. Registered suppliers can respond from their portal.</p></div></div>
+	<div class="grid g3">{% for t in tenders %}
+		<a class="card hover" href="/marketplace/vendor/tenders/{{ t.name }}" data-full><div class="row between"><span class="badge navy">{{ t.transaction_type }}</span><span class="small muted">{{ t.lines }} line(s)</span></div>
+			<h3 style="margin-top:10px">{{ t.title }}</h3><div class="small muted">{{ t.category }} · {{ t.city or "" }} {{ t.country or "" }}</div>
+			<div class="small" style="margin-top:10px">Closes <b>{{ frappe.utils.format_datetime(t.submission_deadline, "dd MMM, HH:mm") }}</b> · {{ t.offers_count }} offers</div></a>
+	{% endfor %}</div>
+</div></section>
+{% endif %}
+
+<section class="section"><div class="wrap grid g2">
+	<div class="card" style="padding:32px"><span class="eyebrow">For customers</span><h2>Procurement without the phone tag</h2>
+		<div class="stack" style="margin-top:16px">
+			<div class="benefit"><i>1</i><div><b>One brief, many quotes</b><div class="muted small">Stop calling ten yards. Matched suppliers come to you.</div></div></div>
+			<div class="benefit"><i>2</i><div><b>Comparable totals</b><div class="muted small">Every offer priced by the same rules — rental, transport, loading, tax.</div></div></div>
+			<div class="benefit"><i>3</i><div><b>Reserved stock</b><div class="muted small">Accepted quantities are locked for your dates; no double booking.</div></div></div>
+			<div class="benefit"><i>4</i><div><b>Full audit trail</b><div class="muted small">Every revision, clarification and decision is recorded.</div></div></div>
+		</div>
+		<a class="btn navy" style="margin-top:20px" href="/marketplace/register">Create a customer account</a></div>
+	<div class="band"><span class="eyebrow">For suppliers</span><h2>Win work you would never have heard about</h2>
+		<p>Receive qualified tender invitations matched to your fleet, coverage and free stock. Bid privately, manage bookings, deliveries and returns — and connect it all to thinkNXG ERP.</p>
+		<div class="row" style="margin-top:22px"><a class="btn amber" href="/marketplace/for-suppliers#register">Register your business</a><a class="btn light" href="/marketplace/for-suppliers">See plans</a></div></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+	<div class="section-head"><div><span class="eyebrow">Industry coverage</span><h2>Built for the way construction buys</h2></div></div>
+	<div class="grid g4">
+		{% for t, d in [("Building contractors","Slab & wall formwork, props and access scaffolding for high-rise and villas."),("Infrastructure","Bridges, tunnels and utilities — heavy shoring and long-term contracts."),("Industrial & oil and gas","Shutdown scaffolding, certified access and tube-and-fitting."),("Government projects","Transparent, auditable competitive offers with verified suppliers.")] %}
+		<div class="card"><h3>{{ t }}</h3><p class="muted small">{{ d }}</p></div>{% endfor %}
+	</div>
+</div></section>
+
+{% if testimonials %}
+<section class="section"><div class="wrap">
+	<div class="section-head"><div><span class="eyebrow">Verified reviews</span><h2>From completed bookings</h2></div></div>
+	<div class="grid g3">{% for r in testimonials %}<div class="card"><div class="stars">{{ "★" * ((r.rating or 0) * 5)|round|int }}</div><p>“{{ r.comment }}”</p><div class="small muted">{{ r.reviewer_display_name }} · booked {{ r.vendor_name }}</div></div>{% endfor %}</div>
+</div></section>
+{% endif %}
+{% endautoescape %}{% endblock %}
+{% block scripts %}
+<script>
+(function () {
+	const f = document.getElementById("hero-search");
+	f.querySelectorAll(".modes button").forEach((b) => b.addEventListener("click", () => {
+		f.querySelectorAll(".modes button").forEach((x) => x.classList.toggle("on", x === b));
+		f.type.value = b.dataset.mode;
+		document.getElementById("browse-link").href = "/marketplace/equipment?mode=" + b.dataset.mode.toLowerCase();
+	}));
+})();
+</script>
+{% endblock %}

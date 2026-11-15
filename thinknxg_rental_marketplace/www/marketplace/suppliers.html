@@ -1,0 +1,15 @@
+{% extends "templates/marketplace/base.html" %}
+{% from "templates/marketplace/macros.html" import supplier_card %}
+{% block content %}{% autoescape true %}
+<section class="page-hero"><div class="wrap"><span class="eyebrow">Supplier directory</span><h1>Verified suppliers</h1><p>Rental companies, dealers and manufacturers approved by the marketplace team.</p></div></section>
+<div class="wrap" style="margin-top:26px">
+	<form class="card row" method="get" style="margin-bottom:20px">
+		<input type="search" name="q" value="{{ q }}" placeholder="Supplier or city" style="flex:2;min-width:200px">
+		<select name="category" style="flex:1;min-width:180px"><option value="">All categories</option>{% for c in mp_categories if c.name != "All Equipment" %}<option value="{{ c.name }}" {{ "selected" if category == c.name }}>{{ c.category_name }}</option>{% endfor %}</select>
+		<select name="country" style="flex:1;min-width:150px"><option value="">Any country</option>{% for c in countries %}<option {{ "selected" if country == c }}>{{ c }}</option>{% endfor %}</select>
+		<button class="btn">Search</button>
+	</form>
+	<p class="muted">{{ total }} supplier{{ "s" if total != 1 }}</p>
+	{% if rows %}<div class="grid g3">{% for v in rows %}{{ supplier_card(v)|safe }}{% endfor %}</div>{% else %}<div class="empty">No suppliers match.</div>{% endif %}
+</div>
+{% endautoescape %}{% endblock %}

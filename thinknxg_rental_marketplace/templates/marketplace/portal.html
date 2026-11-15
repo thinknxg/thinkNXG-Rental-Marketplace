@@ -1,0 +1,18 @@
+{% extends "templates/marketplace/base.html" %}
+{% block body_class %}portal {{ mp_kind }}{% endblock %}
+{% block shell %}{% from "templates/marketplace/macros.html" import logo %}
+<div class="shell">
+	<aside class="side {{ mp_kind }}">
+		<a class="brand" href="/marketplace">{{ logo()|safe }}<span>thinkNXG<small>{{ {"account": "Customer workspace", "vendor": "Supplier portal", "operator": "Operator console"}[mp_kind] }}</small></span></a>
+		<nav id="side-nav"></nav>
+		<div class="who"><b>{{ (mp_full_name or mp_user)|e }}</b><span class="tiny">{{ mp_user|e }}</span><div class="row" style="margin-top:10px">
+			<a class="btn light sm" href="/marketplace" data-full>Marketplace</a><a class="btn light sm" href="/?cmd=web_logout" data-full>Sign out</a></div></div>
+	</aside>
+	<div class="main">
+		<div class="bar"><button class="menu-btn" aria-label="Menu">☰</button><h2 id="page-title">{{ mp_title }}</h2><div id="bar-actions" class="row"></div>
+			<button class="bell" title="Notifications">🔔</button></div>
+		<div class="content" id="view"><div class="spinner"></div></div>
+	</div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/assets/thinknxg_rental_marketplace/js/mp_{{ mp_kind }}.js?v=1"></script>{% endblock %}
