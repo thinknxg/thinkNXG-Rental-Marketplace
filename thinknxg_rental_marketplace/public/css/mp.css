@@ -80,7 +80,10 @@ body.mp { margin: 0; font-family: var(--font); color: var(--ink); background: va
 }
 .footer { background: var(--navy); color: #aebbd0; padding: 56px 0 26px; margin-top: 80px; font-size: .92rem; }
 .footer h4 { color: #fff; font-size: .82rem; } .footer a { color: #d6deea; display: block; padding: 4px 0; } .footer a:hover { color: var(--amber); }
-.footer .legal { border-top: 1px solid rgba(255,255,255,.1); margin-top: 36px; padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: .82rem; }
+.footer .legal { border-top: 1px solid rgba(255,255,255,.1); margin-top: 36px; padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; gap: 10px; font-size: .82rem; }
+.footer .legal span { white-space: nowrap; }
+.footer .legal a { display: inline; padding: 0; }
+@media (max-width: 640px) { .footer .legal { flex-wrap: wrap; } .footer .legal span { white-space: normal; } }
 
 /* ---------- hero ---------- */
 .hero { position: relative; overflow: hidden; color: #fff; background: radial-gradient(1200px 500px at 85% -10%, rgba(59,123,240,.45), transparent 60%),
