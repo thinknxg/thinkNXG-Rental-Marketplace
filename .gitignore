@@ -1,5 +1,5 @@
-__pycache__/
-*.pyc
 *.egg-info
-node_modules/
+*.pyc
 .DS_Store
+__pycache__/
+node_modules/

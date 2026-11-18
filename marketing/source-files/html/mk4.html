@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><title>ThinkNXG Rental Marketplace</title><style>
+:root{--navy:#0b1f3a;--navy2:#12305a;--navy3:#1a3f73;--blue:#1d5fd6;--blue2:#3b7bf0;--blue-soft:#e8f0fe;
+--amber:#f5a623;--amber2:#ffbf4d;--amber-soft:#fff4e0;--s50:#f6f8fb;--s100:#eef1f6;--s200:#dde3ec;--s300:#c3ccd9;
+--s500:#6b778a;--s700:#3d4757;--ink:#101828;--green:#12a150;--green-soft:#e6f6ed;--violet:#6d4fd8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:"Inter","Inter Display",system-ui,"Segoe UI",Roboto,sans-serif;color:var(--ink);line-height:1.45;font-feature-settings:"cv11","ss01"}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--navy)}
+.dark h1,.dark h2,.dark h3,.dark h4{color:#fff}
+.bg-navy{background:linear-gradient(135deg,#091a31 0%,#0e2848 55%,#1a3f73 130%)}
+.bg-navy.bg-grid{background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(135deg,#091a31 0%,#0e2848 55%,#1a3f73 130%)}
+.bg-grid{background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:40px 40px}
+.bg-grid-l{background-image:linear-gradient(rgba(11,31,58,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(11,31,58,.045) 1px,transparent 1px);background-size:40px 40px}
+.eyebrow{font-size:.72em;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.amber{color:var(--amber)}.blue{color:var(--blue)}.muted{color:var(--s500)}.white{color:#fff}
+.brand{display:flex;align-items:center;gap:.7em}
+.brand .wm{font-weight:800;letter-spacing:-.02em;line-height:1}
+.brand .wm small{display:block;font-size:.42em;letter-spacing:.2em;font-weight:700;color:var(--amber);margin-top:.35em;text-transform:uppercase}
+.dark .brand .wm{color:#fff}.brand .wm{color:var(--navy)}
+.card{background:#fff;border:1px solid var(--s200);border-radius:18px;box-shadow:0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.25)}
+.card.dk{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);box-shadow:none;color:#fff}
+.ico{display:inline-flex;align-items:center;justify-content:center;border-radius:14px;flex:none}
+.ico.a{background:var(--amber);color:var(--navy)}.ico.b{background:var(--blue);color:#fff}.ico.n{background:var(--navy);color:var(--amber)}
+.ico.s{background:var(--blue-soft);color:var(--blue)}.ico.w{background:rgba(255,255,255,.1);color:var(--amber);border:1px solid rgba(255,255,255,.18)}
+.pill{display:inline-block;border-radius:99px;padding:.32em .9em;font-weight:700;font-size:.78em;letter-spacing:.04em}
+.pill.a{background:var(--amber);color:var(--navy)}.pill.n{background:var(--navy);color:#fff}.pill.o{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.pill.g{background:var(--green-soft);color:var(--green)}.pill.s{background:var(--blue-soft);color:var(--blue)}
+.foot{display:flex;justify-content:space-between;align-items:center;font-size:.8em}
+.shot{border-radius:12px;overflow:hidden;border:1px solid var(--s200);background:#fff;box-shadow:0 30px 60px -30px rgba(11,31,58,.55)}
+.shot .bar{height:26px;background:#eef1f6;display:flex;align-items:center;gap:6px;padding:0 10px;border-bottom:1px solid var(--s200)}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#c3ccd9;display:block}
+.shot img{display:block;width:100%}
+.note{font-size:.7em;color:var(--s500)}
+.dark .note{color:rgba(255,255,255,.55)}
+@page{size:1600px 1000px;margin:0}html,body{width:1600px;height:1000px;overflow:hidden}</style></head><body class="" style=""><div class="bg-navy bg-grid dark" style="position:relative;width:1600px;height:1000px;overflow:hidden;"><div style="position:absolute;left:80px;top:64px"><div class="brand dark"><svg viewBox="0 0 64 64" width="40" height="40"><rect width="64" height="64" rx="16" fill="#fff"/><path d="M18 10v44M46 10v44M18 22h28M18 38h28M18 22l28 16" fill="none" stroke="#0b1f3a" stroke-width="4.5" stroke-linecap="round"/><circle cx="46" cy="22" r="5" fill="#f5a623"/></svg><div class="wm" style="font-size:25px">thinkNXG<small>Rental Marketplace</small></div></div></div>
+ <div style="position:absolute;left:80px;top:170px;width:1440px"><div class="eyebrow" style="font-size:15px">Public marketplace</div><h2 style="font-size:54px;margin-top:10px;color:#fff;letter-spacing:-.02em">Post a requirement in minutes</h2><div style="color:#c9d6ea;font-size:21px;margin-top:10px">Categories, suppliers and a guided requirement form.</div></div>
+ <div style="position:absolute;left:230px;top:350px;width:1140px;height:560px;overflow:hidden;border-radius:14px" class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../../product-mockups/screenshots/marketplace-home.png" style="width:1140px"></div>
+ <div style="position:absolute;left:230px;bottom:18px;font-size:13px;color:rgba(255,255,255,.55)">Product screenshot, demo data</div>
+ <div style="position:absolute;right:80px;bottom:18px"><div style="font-size:14px;color:#fff;text-align:right;line-height:1.5"><b>Powered by thinkNXG</b><br><span style="opacity:.7">thinknxg.com</span></div></div></div></body></html>

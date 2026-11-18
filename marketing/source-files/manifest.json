@@ -1,0 +1,298 @@
+[
+ {
+  "html": "infographic-01-product-overview.html",
+  "dir": "infographics",
+  "name": "01-product-overview",
+  "w": 1200,
+  "h": 1800,
+  "kinds": [
+   "png"
+  ]
+ },
+ {
+  "html": "infographic-02-how-it-works.html",
+  "dir": "infographics",
+  "name": "02-how-it-works",
+  "w": 1800,
+  "h": 1000,
+  "kinds": [
+   "png"
+  ]
+ },
+ {
+  "html": "infographic-03-customer-benefits.html",
+  "dir": "infographics",
+  "name": "03-customer-benefits",
+  "w": 1200,
+  "h": 1740,
+  "kinds": [
+   "png"
+  ]
+ },
+ {
+  "html": "infographic-04-supplier-benefits.html",
+  "dir": "infographics",
+  "name": "04-supplier-benefits",
+  "w": 1200,
+  "h": 1740,
+  "kinds": [
+   "png"
+  ]
+ },
+ {
+  "html": "infographic-05-ecosystem.html",
+  "dir": "infographics",
+  "name": "05-platform-ecosystem",
+  "w": 1800,
+  "h": 1120,
+  "kinds": [
+   "png"
+  ]
+ },
+ {
+  "html": "infographic-06-feature-comparison.html",
+  "dir": "infographics",
+  "name": "06-feature-comparison",
+  "w": 1200,
+  "h": 1580,
+  "kinds": [
+   "png"
+  ]
+ },
+ {
+  "html": "brochure.html",
+  "dir": "brochures",
+  "name": "ThinkNXG-Rental-Marketplace-Brochure-A4",
+  "w": 794,
+  "h": 1123,
+  "kinds": [
+   "pdf"
+  ]
+ },
+ {
+  "html": "flyer.html",
+  "dir": "flyers",
+  "name": "ThinkNXG-Rental-Marketplace-Flyer-A4",
+  "w": 794,
+  "h": 1123,
+  "kinds": [
+   "pdf"
+  ]
+ },
+ {
+  "html": "exec.html",
+  "dir": "flyers",
+  "name": "ThinkNXG-Rental-Marketplace-Executive-Overview-A4",
+  "w": 794,
+  "h": 1123,
+  "kinds": [
+   "pdf"
+  ]
+ },
+ {
+  "html": "brochure-print-3mm-bleed.html",
+  "dir": "brochures",
+  "name": "ThinkNXG-Rental-Marketplace-Brochure-A4-print-3mm-bleed",
+  "w": 816,
+  "h": 1145,
+  "kinds": [
+   "pdf"
+  ]
+ },
+ {
+  "html": "flyer-print-3mm-bleed.html",
+  "dir": "flyers",
+  "name": "ThinkNXG-Rental-Marketplace-Flyer-A4-print-3mm-bleed",
+  "w": 816,
+  "h": 1145,
+  "kinds": [
+   "pdf"
+  ]
+ },
+ {
+  "html": "exec-print-3mm-bleed.html",
+  "dir": "flyers",
+  "name": "ThinkNXG-Rental-Marketplace-Executive-Overview-A4-print-3mm-bleed",
+  "w": 816,
+  "h": 1145,
+  "kinds": [
+   "pdf"
+  ]
+ },
+ {
+  "html": "li1.html",
+  "dir": "social-media",
+  "name": "linkedin-1-tagline",
+  "w": 1200,
+  "h": 627,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "li2.html",
+  "dir": "social-media",
+  "name": "linkedin-2-how-it-works",
+  "w": 1200,
+  "h": 627,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "li3.html",
+  "dir": "social-media",
+  "name": "linkedin-3-suppliers",
+  "w": 1200,
+  "h": 627,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "lib.html",
+  "dir": "social-media",
+  "name": "linkedin-banner-1584x396",
+  "w": 1584,
+  "h": 396,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "ig1.html",
+  "dir": "social-media",
+  "name": "instagram-1-tagline-1080",
+  "w": 1080,
+  "h": 1080,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "ig2.html",
+  "dir": "social-media",
+  "name": "instagram-2-sealed-offers-1080",
+  "w": 1080,
+  "h": 1080,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "ig3.html",
+  "dir": "social-media",
+  "name": "instagram-3-fulfilment-1080",
+  "w": 1080,
+  "h": 1080,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "ig4.html",
+  "dir": "social-media",
+  "name": "instagram-4-workflow-1080x1350",
+  "w": 1080,
+  "h": 1350,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "wa.html",
+  "dir": "social-media",
+  "name": "whatsapp-poster-1080x1350",
+  "w": 1080,
+  "h": 1350,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "hero.html",
+  "dir": "banners",
+  "name": "website-hero-1920x720",
+  "w": 1920,
+  "h": 720,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "heromob.html",
+  "dir": "banners",
+  "name": "website-hero-mobile-750x900",
+  "w": 750,
+  "h": 900,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "mk1.html",
+  "dir": "product-mockups",
+  "name": "mockup-customer-compare-offers",
+  "w": 1600,
+  "h": 1000,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "mk2.html",
+  "dir": "product-mockups",
+  "name": "mockup-supplier-offer-builder",
+  "w": 1600,
+  "h": 1000,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "mk3.html",
+  "dir": "product-mockups",
+  "name": "mockup-operator-analytics",
+  "w": 1600,
+  "h": 1000,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "mk4.html",
+  "dir": "product-mockups",
+  "name": "mockup-public-marketplace",
+  "w": 1600,
+  "h": 1000,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ },
+ {
+  "html": "mk5.html",
+  "dir": "product-mockups",
+  "name": "mockup-three-portals",
+  "w": 1800,
+  "h": 1000,
+  "kinds": [
+   "png"
+  ],
+  "scale": 2
+ }
+]
