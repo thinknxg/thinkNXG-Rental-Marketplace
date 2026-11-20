@@ -38,6 +38,23 @@ bench --site <site> execute thinknxg_rental_marketplace.demo.seed   # optional d
 ```
 Open `/marketplace`. Full guide: [docs/03_INSTALL_DEPLOY.md](docs/03_INSTALL_DEPLOY.md).
 
+## Sharing a bench or site with the car rental marketplace
+This app can run on the same bench and the same site as `rental_marketplace`
+([thinknxg/car_rental_marketplace](https://github.com/thinknxg/car_rental_marketplace)) **v1.1 or later**.
+Earlier versions of that app used this app's module name (`Rental Marketplace`), four of its DocType names and three of
+its role names, so the two could not be installed together; v1.1 renamed its side. What this app owns on a shared site:
+
+* Module `Rental Marketplace`, all 48 DocTypes listed above, website pages under `/marketplace/…`
+* Roles `Marketplace Admin`, `Marketplace Moderator`, `Marketplace Finance`, `Marketplace Vendor`, `Marketplace Customer`
+  (the car app uses `Car Marketplace …` roles, so operator rights in one app grant nothing in the other)
+
+```bash
+bench get-app https://github.com/thinknxg/thinknxg-rental-marketplace --branch main
+bench get-app https://github.com/thinknxg/car_rental_marketplace --branch main   # v1.1+
+bench --site <site> install-app thinknxg_rental_marketplace
+bench --site <site> install-app rental_marketplace                              # either order works
+```
+
 ## Documentation
 | | |
 |---|---|
